@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+<meta name="google-site-verification" content="kYQuniuaRZuL9fq0DATfL7extAwcqWG6Ki286ZMcpak" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+<!-- 网站关键字  -->
+  <meta name="keywords" content="web前端,前端博客,vue,js，html,css,html5,css3,node,express,git,react">
+<!-- 网站作者  -->
+  <meta name="author" content="wxb">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blogwxb.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="主要是分享自己在web前端的一些入的坑，脱的坑的经历，也会是分享一些node后端的知识。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="会飞的猪的个人博客">
+<meta property="og:url" content="https://blogwxb.cn/page/6/index.html">
+<meta property="og:site_name" content="会飞的猪的个人博客">
+<meta property="og:description" content="主要是分享自己在web前端的一些入的坑，脱的坑的经历，也会是分享一些node后端的知识。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="wxb">
+<meta property="article:tag" content="web前端，前端博客，vue，js，html，css，html5，css3，node，express，git，react">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://blogwxb.cn/page/6/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>会飞的猪的个人博客</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?3bc21ab780489193ab1c6a33159920cd";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="会飞的猪的个人博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">会飞的猪的个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">20</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">3</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">65</span></a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/dearDreamWeb" class="github-corner" title="我的github主页" aria-label="我的github主页" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blogwxb.cn/vue%E7%9A%84%E8%B7%AF%E7%94%B1%E5%A4%8D%E7%94%A8%E5%92%8C%E5%AF%BC%E8%88%AA%E5%AE%88%E5%8D%AB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="wxb">
+      <meta itemprop="description" content="主要是分享自己在web前端的一些入的坑，脱的坑的经历，也会是分享一些node后端的知识。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="会飞的猪的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/vue%E7%9A%84%E8%B7%AF%E7%94%B1%E5%A4%8D%E7%94%A8%E5%92%8C%E5%AF%BC%E8%88%AA%E5%AE%88%E5%8D%AB/" class="post-title-link" itemprop="url">vue的路由复用和导航守卫</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-21 09:05:11" itemprop="dateCreated datePublished" datetime="2020-04-21T09:05:11+08:00">2020-04-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-07-01 11:00:29" itemprop="dateModified" datetime="2021-07-01T11:00:29+08:00">2021-07-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <script type="text/javascript" src="/js/bai.js"></script>
+
+<h1 id="一、路由复用"><a href="#一、路由复用" class="headerlink" title="一、路由复用"></a>一、路由复用</h1><p>路由复用要在相对应的路由中添加的是在<font color="#f40">components</font>里面，不是children。<br>例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    path: <span class="string">"/"</span>,</span><br><span class="line">    name: <span class="string">"Home"</span>,</span><br><span class="line">    components: &#123; <span class="comment">//这里是components不是component</span></span><br><span class="line">      <span class="keyword">default</span>: Home,</span><br><span class="line">      <span class="string">"Delivery"</span>: Delivery,</span><br><span class="line">      <span class="string">"History"</span>: History,</span><br><span class="line">      <span class="string">"OrderingGuide"</span>: OrderingGuide</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/vue%E7%9A%84%E8%B7%AF%E7%94%B1%E5%A4%8D%E7%94%A8%E5%92%8C%E5%AF%BC%E8%88%AA%E5%AE%88%E5%8D%AB/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blogwxb.cn/vue%E4%B8%AD%E7%9A%84filters%E8%BF%87%E6%BB%A4%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="wxb">
+      <meta itemprop="description" content="主要是分享自己在web前端的一些入的坑，脱的坑的经历，也会是分享一些node后端的知识。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="会飞的猪的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/vue%E4%B8%AD%E7%9A%84filters%E8%BF%87%E6%BB%A4%E5%99%A8/" class="post-title-link" itemprop="url">vue中的filters过滤器</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-17 09:29:00" itemprop="dateCreated datePublished" datetime="2020-04-17T09:29:00+08:00">2020-04-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-07-01 11:00:29" itemprop="dateModified" datetime="2021-07-01T11:00:29+08:00">2021-07-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <script type="text/javascript" src="/js/bai.js"></script>
+
+<p><font color="#f40"></font><br><font color="#f40">Vue2.0以后内置过滤器都去掉了，要用filters只能自定义写。</font></p>
+<h1 id="一、自定义filters过滤器"><a href="#一、自定义filters过滤器" class="headerlink" title="一、自定义filters过滤器"></a>一、自定义filters过滤器</h1><p>过滤器函数始终以<font color="#f40">表达式的值</font>作为<font color="#f40">第一个参数</font>。带引号的参数视为字符串，而不带引号的参数按表达式计算 </p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/vue%E4%B8%AD%E7%9A%84filters%E8%BF%87%E6%BB%A4%E5%99%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blogwxb.cn/vue%E9%A1%B9%E7%9B%AE%E5%AE%9E%E7%8E%B0github-pages%E7%9A%84%E9%A2%84%E8%A7%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="wxb">
+      <meta itemprop="description" content="主要是分享自己在web前端的一些入的坑，脱的坑的经历，也会是分享一些node后端的知识。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="会飞的猪的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/vue%E9%A1%B9%E7%9B%AE%E5%AE%9E%E7%8E%B0github-pages%E7%9A%84%E9%A2%84%E8%A7%88/" class="post-title-link" itemprop="url">vue项目实现github-pages的预览</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-13 16:52:43" itemprop="dateCreated datePublished" datetime="2020-04-13T16:52:43+08:00">2020-04-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-07-01 11:00:29" itemprop="dateModified" datetime="2021-07-01T11:00:29+08:00">2021-07-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <script type="text/javascript" src="/js/bai.js"></script>
+
+<h1 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h1><p>目前使用的是vue-cli4.0</p>
+<h1 id="1、打包vue-项目"><a href="#1、打包vue-项目" class="headerlink" title="1、打包vue 项目"></a>1、打包vue 项目</h1><p>vue项目：<br>现在github上传建一个github.io仓库，例如xxx.github.io，并再创建一个gh-pages分支。  </p>
+<p>在本地先把本地仓库上传到远程仓库的master分支。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/vue%E9%A1%B9%E7%9B%AE%E5%AE%9E%E7%8E%B0github-pages%E7%9A%84%E9%A2%84%E8%A7%88/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blogwxb.cn/js%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%AD%E7%9A%84indexOf%E5%92%8Csearch%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%8Cexec%E4%B8%8Ematch%E7%9A%84%E5%8C%BA%E5%88%AB%E8%AF%B4%E6%98%8E/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="wxb">
+      <meta itemprop="description" content="主要是分享自己在web前端的一些入的坑，脱的坑的经历，也会是分享一些node后端的知识。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="会飞的猪的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/js%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%AD%E7%9A%84indexOf%E5%92%8Csearch%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%8Cexec%E4%B8%8Ematch%E7%9A%84%E5%8C%BA%E5%88%AB%E8%AF%B4%E6%98%8E/" class="post-title-link" itemprop="url">js正则表达式中的indexOf和search的区别，exec与match的区别说明</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-12 18:50:12" itemprop="dateCreated datePublished" datetime="2020-04-12T18:50:12+08:00">2020-04-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-07-01 11:00:29" itemprop="dateModified" datetime="2021-07-01T11:00:29+08:00">2021-07-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <script type="text/javascript" src="/js/bai.js"></script>
+
+<h1 id="indexOf和search的区别"><a href="#indexOf和search的区别" class="headerlink" title="indexOf和search的区别"></a>indexOf和search的区别</h1><p>search和indexOf的作用都是匹配出符合条件的字符串的索引位置，区别是search能用正则表达式匹配</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/js%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%AD%E7%9A%84indexOf%E5%92%8Csearch%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%8Cexec%E4%B8%8Ematch%E7%9A%84%E5%8C%BA%E5%88%AB%E8%AF%B4%E6%98%8E/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blogwxb.cn/vue%E8%A7%A3%E5%86%B3%E5%AD%90%E7%BB%84%E4%BB%B6%E6%94%B9%E5%8F%98%E7%88%B6%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%85%A5props%E7%9A%84%E5%80%BC%E8%AD%A6%E5%91%8A%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="wxb">
+      <meta itemprop="description" content="主要是分享自己在web前端的一些入的坑，脱的坑的经历，也会是分享一些node后端的知识。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="会飞的猪的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/vue%E8%A7%A3%E5%86%B3%E5%AD%90%E7%BB%84%E4%BB%B6%E6%94%B9%E5%8F%98%E7%88%B6%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%85%A5props%E7%9A%84%E5%80%BC%E8%AD%A6%E5%91%8A%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">vue解决子组件改变父组件传入props的值警告问题</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-07 22:38:15" itemprop="dateCreated datePublished" datetime="2020-04-07T22:38:15+08:00">2020-04-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-07-01 11:00:29" itemprop="dateModified" datetime="2021-07-01T11:00:29+08:00">2021-07-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <script type="text/javascript" src="/js/bai.js"></script>
+
+<h1 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h1><p>子组件想要改变父组件传入的值（props） </p>
+<p>例子：<br>点击按钮，改变数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 父组件代码</span><br><span class="line">&lt;hello-world :msg&#x3D;&quot;str&quot;&gt;&lt;&#x2F;hello-world&gt;</span><br><span class="line">data()&#123;</span><br><span class="line">    return&#123;</span><br><span class="line">        str:&quot;啦啦啦&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br><span class="line">    </span><br><span class="line">&#x2F;&#x2F;子组件代码</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class&#x3D;&quot;hello&quot;&gt;</span><br><span class="line">    &lt;button @click&#x3D;&quot;change&quot;&gt;改变&lt;&#x2F;button&gt;&#123;&#123; msg &#125;&#125;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#39;HelloWorld&#39;,</span><br><span class="line">  props: &#123;</span><br><span class="line">    msg: String</span><br><span class="line">  &#125;,</span><br><span class="line">  methods:&#123;</span><br><span class="line">    change()&#123;</span><br><span class="line">      this.msg&#x3D;&quot;已改变&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/vue%E8%A7%A3%E5%86%B3%E5%AD%90%E7%BB%84%E4%BB%B6%E6%94%B9%E5%8F%98%E7%88%B6%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%85%A5props%E7%9A%84%E5%80%BC%E8%AD%A6%E5%91%8A%E9%97%AE%E9%A2%98/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blogwxb.cn/express%E4%B8%ADreq-session%E6%98%BE%E7%A4%BAundefined%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="wxb">
+      <meta itemprop="description" content="主要是分享自己在web前端的一些入的坑，脱的坑的经历，也会是分享一些node后端的知识。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="会飞的猪的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/express%E4%B8%ADreq-session%E6%98%BE%E7%A4%BAundefined%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="post-title-link" itemprop="url">express中req.session显示undefined的解决方案</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-01 23:41:43" itemprop="dateCreated datePublished" datetime="2020-04-01T23:41:43+08:00">2020-04-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-07-01 11:00:29" itemprop="dateModified" datetime="2021-07-01T11:00:29+08:00">2021-07-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%90%8E%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">后端</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <script type="text/javascript" src="/js/bai.js"></script>
+
+<h1 id="先看一下源码"><a href="#先看一下源码" class="headerlink" title="先看一下源码"></a>先看一下源码</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建路由</span></span><br><span class="line">  <span class="keyword">const</span> router = express.Router();</span><br><span class="line">  app.use(<span class="string">"/api"</span>, router);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 创建session</span></span><br><span class="line">  <span class="keyword">const</span> session = <span class="built_in">require</span>(<span class="string">'express-session'</span>);</span><br><span class="line">  app.use(session(&#123;</span><br><span class="line">      secret: <span class="string">'dfafadfadfa'</span>, <span class="comment">//秘钥</span></span><br><span class="line">      resave: <span class="literal">true</span>,          <span class="comment">//即使 session 没有被修改，也保存 session 值，默认为 true。</span></span><br><span class="line">      saveUninitialized: <span class="literal">true</span>,<span class="comment">//无论有没有session cookie，每次请求都设置个session cookie ，默认给个标示为 connect.sid</span></span><br><span class="line">      cookie: (<span class="string">'name'</span>, <span class="string">'value'</span>, &#123; <span class="attr">secure</span>: <span class="literal">false</span> &#125;)<span class="comment">//当 secure 值为 true 时，cookie 在 HTTP 中是无效，在 HTTPS 中才有效。</span></span><br><span class="line">  &#125;))</span><br><span class="line">  </span><br><span class="line">  router.use(<span class="string">"/aaa"</span>,(req,res)=&gt;&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(req.session)</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+<p>结果当访问到api/aaa地址时，node打印出来的是undefined</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/express%E4%B8%ADreq-session%E6%98%BE%E7%A4%BAundefined%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blogwxb.cn/JS%20%E4%B8%ADcookie%20%E3%80%81cookie%E7%9A%84js%E6%8F%92%E4%BB%B6%E3%80%81Local%20Storage%E3%80%81Session%20Storage/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="wxb">
+      <meta itemprop="description" content="主要是分享自己在web前端的一些入的坑，脱的坑的经历，也会是分享一些node后端的知识。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="会飞的猪的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/JS%20%E4%B8%ADcookie%20%E3%80%81cookie%E7%9A%84js%E6%8F%92%E4%BB%B6%E3%80%81Local%20Storage%E3%80%81Session%20Storage/" class="post-title-link" itemprop="url">JS 中cookie 、cookie的js插件、Local Storage、Session Storage</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-28 18:38:46" itemprop="dateCreated datePublished" datetime="2020-03-28T18:38:46+08:00">2020-03-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-07-01 11:00:29" itemprop="dateModified" datetime="2021-07-01T11:00:29+08:00">2021-07-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <script type="text/javascript" src="/js/bai.js"></script>
+
+<h1 id="cookie、Local-Storage、Session-Storage-定义"><a href="#cookie、Local-Storage、Session-Storage-定义" class="headerlink" title="cookie、Local Storage、Session Storage 定义"></a>cookie、Local Storage、Session Storage 定义</h1><p><font color="#f40">Cookie（局限性）</font>：用户可以禁用cookie，<font color="#f40">最多只能存储4kb</font>，cookie有过期时间的（一般我们设置的时间最长1个月，<font color="#f40">用户使用杀毒软件也可以清除我们的cookie</font>），cookie还需要指定作用域，不可以跨域调用。</p>
+<p><font color="#f40">LocalStorage</font>：持久化存储到本地，没有过期时间，<font color="#f40">最大可存储5MB</font><br>都是采用的明文存储，我们在控制台（Resource）下可以看到存储的信息，所以本地存储都是不安全的（不要存储重要的信息，如果需要的话，我们需要对重要的信息进行严格的加密—md5加密）</p>
+<p><font color="#f40">WebStorage(localStorage(常用，sessionStorage))</font><br>由于我们的localStorage可以存储很多的数据，我们在项目中把不经常更新的数据进行存储，下一次打开页面，先把本地缓存的数据展示，减少对于服务器的请求压力—移动端的本地缓存。</p>
+<p><font color="#f40">sessionStorage</font>用于本地存储一个会话（session）中的数据，这些数据只有在同一个会话中的页面才能访问并且当会话结束后数据也随之销毁。因此sessionStorage不是一种持久化的本地存储，仅仅是会话级别的存储。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/JS%20%E4%B8%ADcookie%20%E3%80%81cookie%E7%9A%84js%E6%8F%92%E4%BB%B6%E3%80%81Local%20Storage%E3%80%81Session%20Storage/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blogwxb.cn/js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%95%B0%E7%BB%84%E4%B9%8B%E9%97%B4%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="wxb">
+      <meta itemprop="description" content="主要是分享自己在web前端的一些入的坑，脱的坑的经历，也会是分享一些node后端的知识。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="会飞的猪的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%95%B0%E7%BB%84%E4%B9%8B%E9%97%B4%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/" class="post-title-link" itemprop="url">js对象和数组之间相互转换</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-21 09:07:26" itemprop="dateCreated datePublished" datetime="2020-03-21T09:07:26+08:00">2020-03-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-07-01 11:00:29" itemprop="dateModified" datetime="2021-07-01T11:00:29+08:00">2021-07-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <script type="text/javascript" src="/js/bai.js"></script>
+
+<h1 id="有个终极方法解决数组和对象的相互转换问题"><a href="#有个终极方法解决数组和对象的相互转换问题" class="headerlink" title="有个终极方法解决数组和对象的相互转换问题"></a>有个终极方法解决数组和对象的相互转换问题</h1><p>下面的两个例子都是es6语法。</p>
+<ol>
+<li>数组转换成对象：<br>知识点： 扩展运算符…<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> obj = &#123;...arr&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(obj); <span class="comment">//&#123;0: 1, 1: 2, 2: 3&#125;</span></span><br></pre></td></tr></table></figure></li>
+<li>对象转换成数组<br>知识点： Object.values(obj)<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123; <span class="number">0</span>: <span class="string">'a'</span>, <span class="number">1</span>: <span class="string">'b'</span>, <span class="number">2</span>: <span class="string">'c'</span> &#125;;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.values(obj)); <span class="comment">// ['a', 'b', 'c']</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blogwxb.cn/vue%E5%BC%95%E5%85%A5%E9%98%BF%E9%87%8C%E5%9B%BE%E6%A0%87%E5%BA%93%E7%9A%84%E6%96%B9%E6%B3%95css-loader%E4%BB%A5%E5%8F%8A%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="wxb">
+      <meta itemprop="description" content="主要是分享自己在web前端的一些入的坑，脱的坑的经历，也会是分享一些node后端的知识。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="会飞的猪的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/vue%E5%BC%95%E5%85%A5%E9%98%BF%E9%87%8C%E5%9B%BE%E6%A0%87%E5%BA%93%E7%9A%84%E6%96%B9%E6%B3%95css-loader%E4%BB%A5%E5%8F%8A%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="post-title-link" itemprop="url">vue引入阿里图标库的方法css-loader以及报错解决方案</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-14 12:05:11" itemprop="dateCreated datePublished" datetime="2020-03-14T12:05:11+08:00">2020-03-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-07-01 11:00:29" itemprop="dateModified" datetime="2021-07-01T11:00:29+08:00">2021-07-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <script type="text/javascript" src="/js/bai.js"></script>
+
+<h1 id="下载到本地"><a href="#下载到本地" class="headerlink" title="下载到本地"></a>下载到本地</h1><p>想需要的图标加入购物车，然后添加至项目中，再选择下载至本地<br><img src="/vue%E5%BC%95%E5%85%A5%E9%98%BF%E9%87%8C%E5%9B%BE%E6%A0%87%E5%BA%93%E7%9A%84%E6%96%B9%E6%B3%95css-loader%E4%BB%A5%E5%8F%8A%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/8.png" alt></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/vue%E5%BC%95%E5%85%A5%E9%98%BF%E9%87%8C%E5%9B%BE%E6%A0%87%E5%BA%93%E7%9A%84%E6%96%B9%E6%B3%95css-loader%E4%BB%A5%E5%8F%8A%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blogwxb.cn/H5%E4%B8%AD%E7%9A%84canvas%E9%AA%8C%E8%AF%81%E7%A0%81%E8%AF%A6%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="wxb">
+      <meta itemprop="description" content="主要是分享自己在web前端的一些入的坑，脱的坑的经历，也会是分享一些node后端的知识。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="会飞的猪的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/H5%E4%B8%AD%E7%9A%84canvas%E9%AA%8C%E8%AF%81%E7%A0%81%E8%AF%A6%E8%A7%A3/" class="post-title-link" itemprop="url">H5中的canvas验证码详解</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-08 11:25:13" itemprop="dateCreated datePublished" datetime="2020-03-08T11:25:13+08:00">2020-03-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-07-01 11:00:29" itemprop="dateModified" datetime="2021-07-01T11:00:29+08:00">2021-07-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <script type="text/javascript" src="/js/bai.js"></script>
+
+<h1 id="先看效果图"><a href="#先看效果图" class="headerlink" title="先看效果图"></a>先看效果图</h1><p><img src="/H5%E4%B8%AD%E7%9A%84canvas%E9%AA%8C%E8%AF%81%E7%A0%81%E8%AF%A6%E8%A7%A3/7.png" alt></p>
+<h1 id="代码阶段"><a href="#代码阶段" class="headerlink" title="代码阶段"></a>代码阶段</h1><p>由于这个canvas是我在vue项目里写的，所以为了照顾一下没学过vue的，就用了原生的js整理了一下，里面用到了一些es6的语法，包括class  模板字符串`` 等，代码里面都有注释。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/H5%E4%B8%AD%E7%9A%84canvas%E9%AA%8C%E8%AF%81%E7%A0%81%E8%AF%A6%E8%A7%A3/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="wxb"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">wxb</p>
+  <div class="site-description" itemprop="description">主要是分享自己在web前端的一些入的坑，脱的坑的经历，也会是分享一些node后端的知识。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">65</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/dearDreamWeb" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;dearDreamWeb" rel="noopener" target="_blank"><i class="fa github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/flyingwxb" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;flyingwxb" rel="noopener" target="_blank"><i class="fa gitee fa-fw"></i>Gitee</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="link fa-fw"></i>
+      推荐阅读
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://www.ruanyifeng.com/blog/archives.html" title="http:&#x2F;&#x2F;www.ruanyifeng.com&#x2F;blog&#x2F;archives.html" rel="noopener" target="_blank">阮一峰的网络日志</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://nav.blogwxb.cn/" title="http:&#x2F;&#x2F;nav.blogwxb.cn" rel="noopener" target="_blank">轩辕导航</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wxb</span>
+</div>
+  <div class="powered-by">
+  会飞的猪的个人博客
+  </div><script color="0,0,0" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

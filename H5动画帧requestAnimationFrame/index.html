@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+<meta name="google-site-verification" content="kYQuniuaRZuL9fq0DATfL7extAwcqWG6Ki286ZMcpak" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+<!-- 网站关键字  -->
+  <meta name="keywords" content="web前端,前端博客,vue,js，html,css,html5,css3,node,express,git,react">
+<!-- 网站作者  -->
+  <meta name="author" content="wxb">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blogwxb.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="介绍在Web应用中，实现动画效果的方法比较多，JavaScript 中可以通过定时器 setTimeout 来实现，css3 可以使用 transition 和 animation 来实现，html5 中的 canvas 也可以实现。除此之外，html5 还提供一个专门用于请求动画的 API，即 requestAnimationFrame（rAF），顾名思义就是 “请求动画帧”。 为了深入理解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="H5动画帧requestAnimationFrame">
+<meta property="og:url" content="https://blogwxb.cn/H5%E5%8A%A8%E7%94%BB%E5%B8%A7requestAnimationFrame/index.html">
+<meta property="og:site_name" content="会飞的猪的个人博客">
+<meta property="og:description" content="介绍在Web应用中，实现动画效果的方法比较多，JavaScript 中可以通过定时器 setTimeout 来实现，css3 可以使用 transition 和 animation 来实现，html5 中的 canvas 也可以实现。除此之外，html5 还提供一个专门用于请求动画的 API，即 requestAnimationFrame（rAF），顾名思义就是 “请求动画帧”。 为了深入理解">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-12-25T03:16:40.000Z">
+<meta property="article:modified_time" content="2021-07-01T03:00:29.433Z">
+<meta property="article:author" content="wxb">
+<meta property="article:tag" content="Html5">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://blogwxb.cn/H5%E5%8A%A8%E7%94%BB%E5%B8%A7requestAnimationFrame/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>H5动画帧requestAnimationFrame | 会飞的猪的个人博客</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?3bc21ab780489193ab1c6a33159920cd";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="会飞的猪的个人博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">会飞的猪的个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">20</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">3</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">65</span></a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/dearDreamWeb" class="github-corner" title="我的github主页" aria-label="我的github主页" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blogwxb.cn/H5%E5%8A%A8%E7%94%BB%E5%B8%A7requestAnimationFrame/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="wxb">
+      <meta itemprop="description" content="主要是分享自己在web前端的一些入的坑，脱的坑的经历，也会是分享一些node后端的知识。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="会飞的猪的个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          H5动画帧requestAnimationFrame
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-12-25 11:16:40" itemprop="dateCreated datePublished" datetime="2020-12-25T11:16:40+08:00">2020-12-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-07-01 11:00:29" itemprop="dateModified" datetime="2021-07-01T11:00:29+08:00">2021-07-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <script type="text/javascript" src="/js/bai.js"></script>
+
+<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>在Web应用中，实现动画效果的方法比较多，JavaScript 中可以通过定时器 <code>setTimeout</code> 来实现，<code>css3</code> 可以使用 <code>transition</code> 和 <code>animation</code> 来实现，html5 中的 <code>canvas</code> 也可以实现。除此之外，html5 还提供一个专门用于请求动画的 API，即 <code>requestAnimationFrame（rAF）</code>，顾名思义就是 “<code>请求动画帧</code>”。 为了深入理解  <code>rAF</code> 背后的原理（后文的 <code>rAF</code> 均指的是 <code>requestAnimationFrame</code>），我们首先需要了解一下与之相关的几个概念：</p>
+<a id="more"></a>
+<h1 id="屏幕绘制频率"><a href="#屏幕绘制频率" class="headerlink" title="屏幕绘制频率"></a>屏幕绘制频率</h1><p>即图像在屏幕上更新的速度，也即屏幕上的图像每秒钟出现的次数，它的单位是赫兹(<code>Hz</code>)。 对于一般笔记本电脑，这个频率大概是<code>60Hz</code>， 可以在桌面上 右键 &gt; 屏幕分辨率 &gt; 高级设置 &gt; 监视器 中查看和设置。这个值的设定受屏幕分辨率、屏幕尺寸和显卡的影响，原则上设置成让眼睛看着舒适的值都行。<br><code>当你对着电脑屏幕什么也不做的情况下，显示器也会以每秒60次的频率正在不断的更新屏幕上的图像</code>。为什么你感觉不到这个变化？ 那是因为人的眼睛有<code>视觉停留效应</code>，即前一副画面留在大脑的印象还没消失，紧接着后一副画面就跟上来了，这中间只间隔了<code>16.7ms(1000/60≈16.7)</code>， 所以会让你误以为屏幕上的图像是静止不动的。而屏幕给你的这种感觉是对的，试想一下，如果刷新频率变成1次/秒，屏幕上的图像就会出现严重的闪烁，这样就很容易引起眼睛疲劳、酸痛和头晕目眩等症状。</p>
+<h1 id="CSS-动画原理"><a href="#CSS-动画原理" class="headerlink" title="CSS 动画原理"></a>CSS 动画原理</h1><p>根据上面的原理我们知道，你眼前所看到图像正在以每秒 <code>60</code> 次的频率绘制，由于频率很高，所以你感觉不到它在绘制。而 <code>动画本质就是要让人眼看到图像被绘制而引起变化的视觉效果，这个变化要以连贯的、平滑的方式进行过渡</code>。 那怎么样才能做到这种效果呢？<br><code>60Hz</code> 的屏幕每<code>16.7ms 绘制一次</code>，如果在屏幕每次绘制前，将元素的位置向左移动一个像素，即1px，这样一来，屏幕每次绘制出来的图像位置都比前一个要差1px，你就会看到图像在移动；而由于人眼的视觉停留效应，当前位置的图像停留在大脑的印象还没消失，紧接着图像又被移到了下一个位置，这样你所看到的效果就是，图像在流畅的移动。这就是视觉效果上形成的动画。 </p>
+<h1 id="setTimeout"><a href="#setTimeout" class="headerlink" title="setTimeout"></a>setTimeout</h1><p>理解了上面的概念以后，我们不难发现，<code>setTimeout</code> 其实就是通过设置一个间隔时间来不断的改变图像的位置，从而达到动画效果的。但我们会发现，利用 <code>seTimeout</code> 实现的动画在某些低端机上会出现卡顿、抖动的现象。 这种现象的产生有两个原因：</p>
+<ul>
+<li><code>setTimeout</code> 的执行时间并不是确定的。在JavaScript中， setTimeout 任务被放进了异步队列中，<code>只有当主线程上的任务执行完以后，才会去检查该队列里的任务是否需要开始执行</code>，所以 <code>setTimeout 的实际执行时机一般要比其设定的时间晚一些</code>。</li>
+<li>刷新频率受 <code>屏幕分辨率</code> 和 <code>屏幕尺寸</code> 的影响，不同设备的屏幕绘制频率可能会不同，而 setTimeout 只能设置一个固定的时间间隔，这个时间不一定和屏幕的刷新时间相同。</li>
+</ul>
+<p>以上两种情况都会导致 <code>setTimeout 的执行步调和屏幕的刷新步调不一致</code>，从而引起<code>丢帧</code>现象。 那为什么步调不一致就会引起丢帧呢？<br>首先要明白，setTimeout 的执行只是在内存中对元素属性进行改变，这个变化必须要等到屏幕下次绘制时才会被更新到屏幕上。如果两者的步调不一致，就可能会导致中间某一帧的操作被跨越过去，而直接更新下一帧的元素。假设屏幕每隔<code>16.7ms</code>刷新一次，而<code>setTimeout</code> 每隔<code>10ms</code>设置图像向左移动<code>1px</code>， 就会出现如下绘制过程（表格）：</p>
+<table>
+<thead>
+<tr>
+<th>时间点</th>
+<th>情况</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>第 0 ms</td>
+<td>屏幕未绘制等待中，setTimeout 也未执行，等待中</td>
+</tr>
+<tr>
+<td>第 10 ms</td>
+<td>屏幕未绘制等待中，setTimeout 开始执行并设置元素属性 left=1px</td>
+</tr>
+<tr>
+<td>第 16.7 ms</td>
+<td>屏幕开始绘制，屏幕上的元素向左移动了 1px， setTimeout 未执行，继续等待中</td>
+</tr>
+<tr>
+<td>第 20 ms</td>
+<td>屏幕未绘制，等待中，setTimeout 开始执行并设置 left=2px</td>
+</tr>
+<tr>
+<td>第 30 ms</td>
+<td>屏幕未绘制，等待中，setTimeout 开始执行并设置 left=3px</td>
+</tr>
+<tr>
+<td>第 33.4  ms</td>
+<td>屏幕开始绘制，屏幕上的元素向左移动了 3px， setTimeout 未执行，继续等待中</td>
+</tr>
+<tr>
+<td>…</td>
+<td>….</td>
+</tr>
+</tbody></table>
+<p>从上面的绘制过程中可以看出，屏幕<code>没有更新 left=2px</code> 的那一帧画面，元素直接从<code>left=1px</code> 的位置跳到了 <code>left=3px</code> 的的位置，这就是丢帧现象，这种现象就会引起动画卡顿。</p>
+<h1 id="rAF"><a href="#rAF" class="headerlink" title="rAF"></a>rAF</h1><p>与 setTimeout 相比，<code>rAF 最大的优势</code>是 <code>由系统来决定回调函数的执行时机</code>。具体一点讲就是，<code>系统每次绘制之前会主动调用 rAF 中的回调函数</code>，如果系统绘制率是 <code>60Hz</code>，那么回调函数就每<code>16.7ms</code> 被执行一次，如果绘制频率是<code>75Hz</code>，那么这个间隔时间就变成了 <code>1000/75=13.3ms</code>。换句话说就是，<code>rAF</code> 的执行步伐跟着系统的绘制频率走。<code>它能保证回调函数在屏幕每一次的绘制间隔中只被执行一次，这样就不会引起丢帧现象，也不会导致动画出现卡顿的问题</code>。<br>这个API的调用很简单，如下所示：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">varprogress = <span class="number">0</span>;</span><br><span class="line"><span class="comment">//回调函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">render</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    progress += <span class="number">1</span>;<span class="comment">//修改图像的位置</span></span><br><span class="line"> </span><br><span class="line">    <span class="keyword">if</span>(progress &lt; <span class="number">100</span>) &#123;</span><br><span class="line">           <span class="comment">//在动画没有结束前，递归渲染</span></span><br><span class="line">           <span class="built_in">window</span>.requestAnimationFrame(render);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//第一帧渲染</span></span><br><span class="line"><span class="built_in">window</span>.requestAnimationFrame(render);</span><br></pre></td></tr></table></figure>
+<h2 id="除此之外，rAF-还有以下两个优势："><a href="#除此之外，rAF-还有以下两个优势：" class="headerlink" title="除此之外，rAF 还有以下两个优势："></a>除此之外，rAF 还有以下两个优势：</h2><ol>
+<li><strong>CPU节能</strong>：使用 setTimeout 实现的动画，当页面被隐藏或最小化时，setTimeout 仍然在后台执行动画任务，由于此时页面处于不可见或不可用状态，刷新动画是没有意义的，而且还浪费 CPU 资源。而 rAF 则完全不同，<code>当页面处理未激活的状态下</code>，该页面的屏幕<code>绘制任务</code>也会被系统暂停，因此跟着系统步伐走的 rAF 也会停止渲染，<code>当页面被激活时，动画就从上次停留的地方继续执行，有效节省了 CPU 开销</code>。</li>
+<li><strong>函数节流</strong>：在高频率事件(resize,scroll 等)中，为了防止在一个刷新间隔内发生多次函数执行，使用 rAF 可保证<code>每个绘制间隔内</code>，函数<code>只被执行一次</code>，这样既能保证流畅性，也能更好的节省函数执行的开销。一个绘制间隔内函数执行多次时没有意义的，因为显示器每16.7ms 绘制一次，多次绘制并不会在屏幕上体现出来。</li>
+</ol>
+<h1 id="优雅降级"><a href="#优雅降级" class="headerlink" title="优雅降级"></a>优雅降级</h1><p>由于 <code>rAF</code> 目前还存在兼容性问题，而且不同的浏览器还需要带不同的前缀。因此需要通过优雅降级的方式对 <code>rAF</code> 进行封装，优先使用高级特性，然后再根据不同浏览器的情况进行回退，直止只能使用 <code>setTimeout</code> 的情况，因此可以这么写：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.requestAnimFrame = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span>  <span class="built_in">window</span>.requestAnimationFrame       ||</span><br><span class="line">          <span class="built_in">window</span>.webkitRequestAnimationFrame ||</span><br><span class="line">          <span class="built_in">window</span>.mozRequestAnimationFrame    ||</span><br><span class="line">          <span class="function"><span class="keyword">function</span>(<span class="params"> callback </span>)</span>&#123;</span><br><span class="line">            <span class="built_in">window</span>.setTimeout(callback, <span class="number">1000</span> / <span class="number">60</span>);</span><br><span class="line">          &#125;;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<p>但这种写法没有考虑 cancelAnimationFrame 的兼容性，并且不是所有的设备绘制时间间隔都是1000/60，下面的代码是比较全的一个 polyfill</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(!<span class="built_in">Date</span>.now)</span><br><span class="line">    <span class="built_in">Date</span>.now = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;returnnewDate().getTime(); &#125;;</span><br><span class="line"> </span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="meta">    'use strict'</span>;</span><br><span class="line">     </span><br><span class="line">    varvendors = [<span class="string">'webkit'</span>,<span class="string">'moz'</span>];</span><br><span class="line">    <span class="keyword">for</span>(vari = <span class="number">0</span>; i &lt; vendors.length &amp;&amp; !<span class="built_in">window</span>.requestAnimationFrame; ++i) &#123;</span><br><span class="line">        varvp = vendors[i];</span><br><span class="line">        <span class="built_in">window</span>.requestAnimationFrame = <span class="built_in">window</span>[vp+<span class="string">'RequestAnimationFrame'</span>];</span><br><span class="line">        <span class="built_in">window</span>.cancelAnimationFrame = (<span class="built_in">window</span>[vp+<span class="string">'CancelAnimationFrame'</span>]</span><br><span class="line">                                   || <span class="built_in">window</span>[vp+<span class="string">'CancelRequestAnimationFrame'</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(<span class="regexp">/iP(ad|hone|od).*OS 6/</span>.test(<span class="built_in">window</span>.navigator.userAgent)<span class="comment">// iOS6 is buggy</span></span><br><span class="line">        || !<span class="built_in">window</span>.requestAnimationFrame || !<span class="built_in">window</span>.cancelAnimationFrame) &#123;</span><br><span class="line">        varlastTime = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">window</span>.requestAnimationFrame = <span class="function"><span class="keyword">function</span>(<span class="params">callback</span>) </span>&#123;</span><br><span class="line">            varnow = <span class="built_in">Date</span>.now();</span><br><span class="line">            varnextTime = <span class="built_in">Math</span>.max(lastTime + <span class="number">16</span>, now);</span><br><span class="line">            returnsetTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; callback(lastTime = nextTime); &#125;,</span><br><span class="line">                              nextTime - now);</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="built_in">window</span>.cancelAnimationFrame = clearTimeout;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;());</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>原创发布 <a href="http://www.cnblogs.com/onepixel/p/7078617.html" target="_blank" rel="noopener">@一像素</a></p>
+</blockquote>
+<h1 id="技巧："><a href="#技巧：" class="headerlink" title="技巧："></a>技巧：</h1><ol>
+<li>return 可以停止动画帧</li>
+<li>window.cancelAnimationFrame(动画名)可以取消动画,<br>例子:<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> frame1 =   <span class="built_in">window</span>.requestAnimationFrame(fn);</span><br><span class="line">    <span class="built_in">window</span>.cancelAnimationFrame(frame1); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>想要有动画效果，window.requestAnimationFrame()要在函数体内才行<br>例子:<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(.....)&#123;   <span class="comment">// 当满足某条件时，停止动画</span></span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">window</span>.requestAnimationFrame(fn)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>总例子：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//html</span></span><br><span class="line">&lt;div id=<span class="string">"map"</span> ref=<span class="string">"map"</span>&gt;&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/css</span></span><br><span class="line"><span class="regexp">#map &#123;</span></span><br><span class="line"><span class="regexp">  position: absolute;</span></span><br><span class="line"><span class="regexp">  width: 300px;</span></span><br><span class="line"><span class="regexp">  height: 180px;</span></span><br><span class="line"><span class="regexp">  background: red;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/js</span></span><br><span class="line"><span class="regexp"> move() &#123;</span></span><br><span class="line"><span class="regexp">      this.$nextTick(() =&gt; &#123;</span></span><br><span class="line"><span class="regexp">        let mapL = parseInt(window.getComputedStyle(this.$refs.map).left); /</span><span class="regexp">/ 获取元素的left值</span></span><br><span class="line"><span class="regexp">        mapL += 1;  /</span><span class="regexp">/ 每次绘制left值加1</span></span><br><span class="line"><span class="regexp">        this.$refs.map.style.left = mapL + "px";</span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/ 当位移量加上元素的宽度等于大于屏幕的宽度时，停止运动</span></span><br><span class="line"><span class="regexp">        if (parseInt(this.$refs.map.style.left) + this.$refs.map.offsetWidth &gt;= window.innerWidth) &#123;</span></span><br><span class="line"><span class="regexp">          return;</span></span><br><span class="line"><span class="regexp">        &#125;</span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/ 绘制函数</span></span><br><span class="line"><span class="regexp">        window.requestAnimationFrame(this.move);</span></span><br><span class="line"><span class="regexp">      &#125;);</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="wxb 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="wxb 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/Html5/" rel="tag"><i class="fa fa-tag"></i> Html5</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/jquery%E4%B8%AD%E7%9A%84ajax%E3%80%81fetch%E5%92%8Caxios%E7%9A%84%E5%8C%BA%E5%88%AB/" rel="prev" title="jquery中的ajax、fetch和axios的区别">
+      <i class="fa fa-chevron-left"></i> jquery中的ajax、fetch和axios的区别
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/video%E7%9A%84autoplay%E5%9C%A8chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E5%A4%B1%E6%95%88%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" rel="next" title="video的autoplay在chrome浏览器失效的解决方案">
+      video的autoplay在chrome浏览器失效的解决方案 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#屏幕绘制频率"><span class="nav-number">2.</span> <span class="nav-text">屏幕绘制频率</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS-动画原理"><span class="nav-number">3.</span> <span class="nav-text">CSS 动画原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#setTimeout"><span class="nav-number">4.</span> <span class="nav-text">setTimeout</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#rAF"><span class="nav-number">5.</span> <span class="nav-text">rAF</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#除此之外，rAF-还有以下两个优势："><span class="nav-number">5.1.</span> <span class="nav-text">除此之外，rAF 还有以下两个优势：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#优雅降级"><span class="nav-number">6.</span> <span class="nav-text">优雅降级</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#技巧："><span class="nav-number">7.</span> <span class="nav-text">技巧：</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="wxb"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">wxb</p>
+  <div class="site-description" itemprop="description">主要是分享自己在web前端的一些入的坑，脱的坑的经历，也会是分享一些node后端的知识。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">65</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/dearDreamWeb" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;dearDreamWeb" rel="noopener" target="_blank"><i class="fa github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/flyingwxb" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;flyingwxb" rel="noopener" target="_blank"><i class="fa gitee fa-fw"></i>Gitee</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="link fa-fw"></i>
+      推荐阅读
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://www.ruanyifeng.com/blog/archives.html" title="http:&#x2F;&#x2F;www.ruanyifeng.com&#x2F;blog&#x2F;archives.html" rel="noopener" target="_blank">阮一峰的网络日志</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://nav.blogwxb.cn/" title="http:&#x2F;&#x2F;nav.blogwxb.cn" rel="noopener" target="_blank">轩辕导航</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wxb</span>
+</div>
+  <div class="powered-by">
+  会飞的猪的个人博客
+  </div><script color="0,0,0" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+# 允许所有用户代理的浏览器爬虫进行访问（爬起数据）
+User-agent: *
+
+# 网站地图Sitemap
+Sitemap: https://blogwxb.cn/sitemap.xml
+Sitemap: https://blogwxb.cn/baidusitemap.xml

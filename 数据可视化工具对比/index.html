@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+<meta name="google-site-verification" content="kYQuniuaRZuL9fq0DATfL7extAwcqWG6Ki286ZMcpak" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+<!-- 网站关键字  -->
+  <meta name="keywords" content="web前端,前端博客,vue,js，html,css,html5,css3,node,express,git,react">
+<!-- 网站作者  -->
+  <meta name="author" content="wxb">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blogwxb.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="常见到的数据可视化工具 Echarts JavaScript 实现的开源可视化库 AntV 蚂蚁集团数据可视化团队 D3.js 将强大的可视化组件和数据驱动的 DOM 操作方法完美结合。 vega  华盛顿大学计算机学院数据交互实验室（IDL）开发的一套交互图形语法 HighCharts 纯 JavaScript 编写的图表库 FineBI  新一代自助大数据分析的BI软件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据可视化工具对比">
+<meta property="og:url" content="https://blogwxb.cn/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B7%A5%E5%85%B7%E5%AF%B9%E6%AF%94/index.html">
+<meta property="og:site_name" content="会飞的猪的个人博客">
+<meta property="og:description" content="常见到的数据可视化工具 Echarts JavaScript 实现的开源可视化库 AntV 蚂蚁集团数据可视化团队 D3.js 将强大的可视化组件和数据驱动的 DOM 操作方法完美结合。 vega  华盛顿大学计算机学院数据交互实验室（IDL）开发的一套交互图形语法 HighCharts 纯 JavaScript 编写的图表库 FineBI  新一代自助大数据分析的BI软件">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-03-31T08:09:52.000Z">
+<meta property="article:modified_time" content="2021-07-01T03:00:29.477Z">
+<meta property="article:author" content="wxb">
+<meta property="article:tag" content="Echarts">
+<meta property="article:tag" content="AntV">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://blogwxb.cn/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B7%A5%E5%85%B7%E5%AF%B9%E6%AF%94/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>数据可视化工具对比 | 会飞的猪的个人博客</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?3bc21ab780489193ab1c6a33159920cd";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="会飞的猪的个人博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">会飞的猪的个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">20</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">3</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">65</span></a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/dearDreamWeb" class="github-corner" title="我的github主页" aria-label="我的github主页" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blogwxb.cn/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B7%A5%E5%85%B7%E5%AF%B9%E6%AF%94/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="wxb">
+      <meta itemprop="description" content="主要是分享自己在web前端的一些入的坑，脱的坑的经历，也会是分享一些node后端的知识。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="会飞的猪的个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          数据可视化工具对比
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-31 16:09:52" itemprop="dateCreated datePublished" datetime="2021-03-31T16:09:52+08:00">2021-03-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-07-01 11:00:29" itemprop="dateModified" datetime="2021-07-01T11:00:29+08:00">2021-07-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <script type="text/javascript" src="/js/bai.js"></script>
+
+<h1 id="常见到的数据可视化工具"><a href="#常见到的数据可视化工具" class="headerlink" title="常见到的数据可视化工具"></a>常见到的数据可视化工具</h1><ul>
+<li><a href="https://echarts.apache.org/zh/index.html" target="_blank" rel="noopener">Echarts</a> JavaScript 实现的开源可视化库</li>
+<li><a href="https://antv.gitee.io/zh" target="_blank" rel="noopener">AntV</a> 蚂蚁集团数据可视化团队</li>
+<li><a href="https://d3js.org/" target="_blank" rel="noopener">D3.js</a> 将强大的可视化组件和数据驱动的 DOM 操作方法完美结合。</li>
+<li><a href="https://vega.github.io/vega/" target="_blank" rel="noopener">vega</a>  华盛顿大学计算机学院数据交互实验室（IDL）开发的一套交互图形语法</li>
+<li><a href="https://www.highcharts.com.cn/" target="_blank" rel="noopener">HighCharts</a> 纯 JavaScript 编写的图表库</li>
+<li><a href="https://www.finebi.com/?utm_source=media&utm_medium=zhihu" target="_blank" rel="noopener">FineBI</a>  新一代自助大数据分析的BI软件<a id="more"></a>
+
+</li>
+</ul>
+<p>以上几种中<code>商用收费</code>的有<code>HighCharts</code>和<code>FineBI</code>，不考虑使用这两款产品，以下的对比忽略这两个;</p>
+<h1 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h1><ol>
+<li>Echarts 兼容 IE6 及以上的所有主流浏览器，同样支持移动端的缩放和手势操作。</li>
+<li>D3.js 兼容IE9 及以上的所有主流浏览器，对于移动端的兼容性也同上。</li>
+<li>Antv 不详</li>
+</ol>
+<h1 id="渲染方式"><a href="#渲染方式" class="headerlink" title="渲染方式"></a>渲染方式</h1><p>第三方库都是基于这两种浏览器图形渲染技术实现的： Canvas 和 SVG 。下面是它们的区别：</p>
+<table>
+<thead>
+<tr>
+<th align="center">SVG</th>
+<th align="center">Canvas</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">不依赖分辨率</td>
+<td align="center">依赖分辨率</td>
+</tr>
+<tr>
+<td align="center">支持事件处理器</td>
+<td align="center">不支持事件处理器</td>
+</tr>
+<tr>
+<td align="center">最适合带有大型渲染区域的应用程序(如地图)</td>
+<td align="center">弱的文本渲染能力</td>
+</tr>
+<tr>
+<td align="center">复杂度高会减慢渲染速度(任何过度使用DOM的应用都不快)</td>
+<td align="center">能够以.png或.jpg格式保存结果图像</td>
+</tr>
+<tr>
+<td align="center">不适合游戏应用</td>
+<td align="center">最适合图像密集型的游戏</td>
+</tr>
+<tr>
+<td align="center">可以为某个元素附加JavaScript事件处理器。在SVG 中，每个被绘制的图形均被视为对象。</td>
+<td align="center">一旦图形被绘制完成，它就不会继续得到浏览器的关注。如果其位置发生变化，那么整个场景都需要重新绘制。</td>
+</tr>
+</tbody></table>
+<p>SVG渲染:</p>
+<ul>
+<li>vega</li>
+<li>D3.js</li>
+</ul>
+<p>ECharts v4.0 发布了 SVG 渲染器，也可以支持SVG渲染。<br>AntV中G2既支持SVG渲染也支持Canvas渲染</p>
+<h1 id="优缺点对比"><a href="#优缺点对比" class="headerlink" title="优缺点对比"></a>优缺点对比</h1><h3 id="1-Ecahrts"><a href="#1-Ecahrts" class="headerlink" title="1. Ecahrts"></a>1. Ecahrts</h3><h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><ul>
+<li>易上手，文档详细</li>
+<li>移动端优化，交互和布局适配，按需打包</li>
+<li>配置项驱动，三级个性化图表样式管理</li>
+<li>丰富的图表类型，覆盖主流常规的统计图表</li>
+<li>深度的交互式数据探索</li>
+<li>地理特效（百度迁徙，百度人气，公交轨迹等效果）</li>
+</ul>
+<h4 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h4><ul>
+<li>复杂关系型图表比较难定制</li>
+<li>灵活性上不如 Vega 等基于图形语法的类库</li>
+</ul>
+<h3 id="2-AntV"><a href="#2-AntV" class="headerlink" title="2. AntV"></a>2. AntV</h3><h4 id="AntV分类："><a href="#AntV分类：" class="headerlink" title="AntV分类："></a>AntV分类：</h4><ul>
+<li>G2 强大的语义化图表语法类库 （主要用到的）</li>
+<li>F2 移动可视化方案</li>
+<li>G6 提供了基本的网图和树图功能，并支持多种内置布局</li>
+<li>X6 图编辑引擎</li>
+<li>L7 地理空间数据可视化</li>
+<li>等等</li>
+</ul>
+<h4 id="G2优点："><a href="#G2优点：" class="headerlink" title="G2优点："></a>G2优点：</h4><ul>
+<li>数据处理能力、便利的扩展方式和强大交互能力；</li>
+<li>可以按需加载</li>
+<li>支持canvas和svg</li>
+</ul>
+<h4 id="G2缺点"><a href="#G2缺点" class="headerlink" title="G2缺点:"></a>G2缺点:</h4><ul>
+<li>文档说明有点简略了</li>
+<li>需要学习相对应的语法，学习成本相对来说有点高</li>
+</ul>
+<h3 id="3-Vega"><a href="#3-Vega" class="headerlink" title="3. Vega"></a>3. Vega</h3><h4 id="优点"><a href="#优点" class="headerlink" title="优点:"></a>优点:</h4><ul>
+<li>完全基于 JSON 语法，提供从数据到图形的映射规则</li>
+<li>支持常见的交互语法</li>
+</ul>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点:"></a>缺点:</h4><ul>
+<li>没有中文文档</li>
+<li>复杂的语法设计，使用和学习成本很高</li>
+</ul>
+<h1 id="Echarts按需加载"><a href="#Echarts按需加载" class="headerlink" title="Echarts按需加载"></a>Echarts按需加载</h1><p>5.0以后版本按需加载的方式是<code>import</code>，4.9版本是使用<code>require</code>进行按需加载的<br>以下例子都是按照饼状图为例</p>
+<h3 id="5-0版本"><a href="#5-0版本" class="headerlink" title="5.0版本"></a>5.0版本</h3><p>按需加载的方式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> echarts <span class="keyword">from</span> <span class="string">"echarts/core"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  TitleComponent,</span><br><span class="line">  TooltipComponent,</span><br><span class="line">  LegendComponent</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'echarts/components'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  PieChart</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'echarts/charts'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  CanvasRenderer</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'echarts/renderers'</span>;</span><br><span class="line"></span><br><span class="line">echarts.use(</span><br><span class="line">  [TitleComponent, TooltipComponent, LegendComponent, PieChart, CanvasRenderer]</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>TypeScript版按需加载</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> echarts <span class="keyword">from</span> <span class="string">'echarts/core'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">    BarChart,</span><br><span class="line">    <span class="comment">// 系列类型的定义后缀都为 SeriesOption</span></span><br><span class="line">    BarSeriesOption,</span><br><span class="line">    LineChart,</span><br><span class="line">    LineSeriesOption</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'echarts/charts'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">    TitleComponent,</span><br><span class="line">    <span class="comment">// 组件类型的定义后缀都为 ComponentOption</span></span><br><span class="line">    TitleComponentOption,</span><br><span class="line">    GridComponent,</span><br><span class="line">    GridComponentOption</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'echarts/components'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">    CanvasRenderer</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'echarts/renderers'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过 ComposeOption 来组合出一个只有必须组件和图表的 Option 类型</span></span><br><span class="line">type ECOption = echarts.ComposeOption&lt;</span><br><span class="line">  BarSeriesOption | LineSeriesOption | TitleComponentOption | GridComponentOption</span><br><span class="line">&gt;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 注册必须的组件</span></span><br><span class="line">echarts.use(</span><br><span class="line">    [TitleComponent, TooltipComponent, GridComponent, BarChart, CanvasRenderer]</span><br><span class="line">);</span><br><span class="line"><span class="keyword">var</span> option: ECOption = &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-9版本"><a href="#4-9版本" class="headerlink" title="4.9版本"></a>4.9版本</h3><p>按需加载的方式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> echarts = <span class="built_in">require</span>(<span class="string">'echarts/lib/echarts'</span>);</span><br><span class="line"><span class="built_in">require</span>(<span class="string">'echarts/lib/chart/pie'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">require</span>(<span class="string">'echarts/lib/component/tooltip'</span>);</span><br><span class="line"><span class="built_in">require</span>(<span class="string">'echarts/lib/component/title'</span>);</span><br><span class="line"><span class="built_in">require</span>(<span class="string">"echarts/lib/component/legend"</span>);</span><br></pre></td></tr></table></figure>
+<p>5.0.2和4.9.0按需加载前后对比</p>
+<table>
+<thead>
+<tr>
+<th align="center">版本</th>
+<th align="center">未按需加载</th>
+<th align="center">按需加载</th>
+<th align="center">节省空间比例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">5.0.2</td>
+<td align="center">2.92MB</td>
+<td align="center">1.09MB</td>
+<td align="center">63%</td>
+</tr>
+<tr>
+<td align="center">4.9.0</td>
+<td align="center">2.55MB</td>
+<td align="center">0.91MB</td>
+<td align="center">64%</td>
+</tr>
+</tbody></table>
+<h3 id="5-0和4-9版本地图用法"><a href="#5-0和4-9版本地图用法" class="headerlink" title="5.0和4.9版本地图用法"></a>5.0和4.9版本地图用法</h3><p>4.9使用地图的方式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> echarts <span class="keyword">from</span> <span class="string">"echarts"</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'echarts/map/js/china.js'</span>;</span><br><span class="line"><span class="keyword">var</span> chart = echarts.init(<span class="built_in">document</span>.getElementById(<span class="string">'main'</span>));</span><br><span class="line"><span class="keyword">const</span> option = &#123;</span><br><span class="line">  ...</span><br><span class="line">  series: [</span><br><span class="line">        &#123;</span><br><span class="line">          name: <span class="string">'iphone'</span>,</span><br><span class="line">          type: <span class="string">'map'</span>,</span><br><span class="line">          mapType: <span class="string">'china'</span>,</span><br><span class="line">          ...</span><br><span class="line">        &#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>5.0中移除了内置的 geoJSON（原先在 echarts/map 文件夹下），如果使用者仍然需要他们，可以去从老版本中得到（下载文件中的map文件，引入本地），或者自己寻找更合适的数据然后通过 registerMap 接口注册到 ECharts 中。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> echarts <span class="keyword">from</span> <span class="string">"echarts"</span>;</span><br><span class="line"><span class="keyword">import</span> chinaJson <span class="keyword">from</span> <span class="string">"./china.json"</span>; <span class="comment">// 引入中国地图数据</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> chart = echarts.init(<span class="built_in">document</span>.getElementById(<span class="string">'main'</span>));</span><br><span class="line">echarts.registerMap(<span class="string">'china'</span>, chinaJson);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> option = &#123;</span><br><span class="line">  ...</span><br><span class="line">  series: [</span><br><span class="line">        &#123;</span><br><span class="line">          name: <span class="string">'iphone'</span>,</span><br><span class="line">          type: <span class="string">'map'</span>,</span><br><span class="line">          map: <span class="string">'china'</span>,</span><br><span class="line">          ...</span><br><span class="line">        &#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="wxb 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="wxb 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/Echarts/" rel="tag"><i class="fa fa-tag"></i> Echarts</a>
+              <a href="/tags/AntV/" rel="tag"><i class="fa fa-tag"></i> AntV</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" rel="prev" title="git的基本操作">
+      <i class="fa fa-chevron-left"></i> git的基本操作
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/Git%E5%A6%82%E4%BD%95%E5%90%8C%E6%97%B6%E6%8F%90%E4%BA%A4%E5%88%B0github%E5%92%8C%E7%A0%81%E4%BA%91gitee%E4%B8%8A/" rel="next" title="Git如何同时提交到github和码云gitee上">
+      Git如何同时提交到github和码云gitee上 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#常见到的数据可视化工具"><span class="nav-number">1.</span> <span class="nav-text">常见到的数据可视化工具</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#兼容性"><span class="nav-number">2.</span> <span class="nav-text">兼容性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#渲染方式"><span class="nav-number">3.</span> <span class="nav-text">渲染方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#优缺点对比"><span class="nav-number">4.</span> <span class="nav-text">优缺点对比</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Ecahrts"><span class="nav-number">4.0.1.</span> <span class="nav-text">1. Ecahrts</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点："><span class="nav-number">4.0.1.1.</span> <span class="nav-text">优点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点："><span class="nav-number">4.0.1.2.</span> <span class="nav-text">缺点：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-AntV"><span class="nav-number">4.0.2.</span> <span class="nav-text">2. AntV</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#AntV分类："><span class="nav-number">4.0.2.1.</span> <span class="nav-text">AntV分类：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#G2优点："><span class="nav-number">4.0.2.2.</span> <span class="nav-text">G2优点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#G2缺点"><span class="nav-number">4.0.2.3.</span> <span class="nav-text">G2缺点:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Vega"><span class="nav-number">4.0.3.</span> <span class="nav-text">3. Vega</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">4.0.3.1.</span> <span class="nav-text">优点:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-number">4.0.3.2.</span> <span class="nav-text">缺点:</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Echarts按需加载"><span class="nav-number">5.</span> <span class="nav-text">Echarts按需加载</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-0版本"><span class="nav-number">5.0.1.</span> <span class="nav-text">5.0版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-9版本"><span class="nav-number">5.0.2.</span> <span class="nav-text">4.9版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-0和4-9版本地图用法"><span class="nav-number">5.0.3.</span> <span class="nav-text">5.0和4.9版本地图用法</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="wxb"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">wxb</p>
+  <div class="site-description" itemprop="description">主要是分享自己在web前端的一些入的坑，脱的坑的经历，也会是分享一些node后端的知识。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">65</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/dearDreamWeb" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;dearDreamWeb" rel="noopener" target="_blank"><i class="fa github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/flyingwxb" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;flyingwxb" rel="noopener" target="_blank"><i class="fa gitee fa-fw"></i>Gitee</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="link fa-fw"></i>
+      推荐阅读
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://www.ruanyifeng.com/blog/archives.html" title="http:&#x2F;&#x2F;www.ruanyifeng.com&#x2F;blog&#x2F;archives.html" rel="noopener" target="_blank">阮一峰的网络日志</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://nav.blogwxb.cn/" title="http:&#x2F;&#x2F;nav.blogwxb.cn" rel="noopener" target="_blank">轩辕导航</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wxb</span>
+</div>
+  <div class="powered-by">
+  会飞的猪的个人博客
+  </div><script color="0,0,0" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

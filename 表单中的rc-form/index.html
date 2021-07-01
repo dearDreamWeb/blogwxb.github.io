@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+<meta name="google-site-verification" content="kYQuniuaRZuL9fq0DATfL7extAwcqWG6Ki286ZMcpak" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+<!-- 网站关键字  -->
+  <meta name="keywords" content="web前端,前端博客,vue,js，html,css,html5,css3,node,express,git,react">
+<!-- 网站作者  -->
+  <meta name="author" content="wxb">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blogwxb.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="antd mobile 的form表单是InputItem如图： rc-form">
+<meta property="og:type" content="article">
+<meta property="og:title" content="antd-mobile中form表单中的rc-form">
+<meta property="og:url" content="https://blogwxb.cn/%E8%A1%A8%E5%8D%95%E4%B8%AD%E7%9A%84rc-form/index.html">
+<meta property="og:site_name" content="会飞的猪的个人博客">
+<meta property="og:description" content="antd mobile 的form表单是InputItem如图： rc-form">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blogwxb.cn/%E8%A1%A8%E5%8D%95%E4%B8%AD%E7%9A%84rc-form/1.png">
+<meta property="article:published_time" content="2020-06-04T08:33:21.000Z">
+<meta property="article:modified_time" content="2021-07-01T03:00:29.478Z">
+<meta property="article:author" content="wxb">
+<meta property="article:tag" content="React">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blogwxb.cn/%E8%A1%A8%E5%8D%95%E4%B8%AD%E7%9A%84rc-form/1.png">
+
+<link rel="canonical" href="https://blogwxb.cn/%E8%A1%A8%E5%8D%95%E4%B8%AD%E7%9A%84rc-form/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>antd-mobile中form表单中的rc-form | 会飞的猪的个人博客</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?3bc21ab780489193ab1c6a33159920cd";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="会飞的猪的个人博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">会飞的猪的个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">20</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">3</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">65</span></a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/dearDreamWeb" class="github-corner" title="我的github主页" aria-label="我的github主页" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blogwxb.cn/%E8%A1%A8%E5%8D%95%E4%B8%AD%E7%9A%84rc-form/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="wxb">
+      <meta itemprop="description" content="主要是分享自己在web前端的一些入的坑，脱的坑的经历，也会是分享一些node后端的知识。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="会飞的猪的个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          antd-mobile中form表单中的rc-form
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-06-04 16:33:21" itemprop="dateCreated datePublished" datetime="2020-06-04T16:33:21+08:00">2020-06-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-07-01 11:00:29" itemprop="dateModified" datetime="2021-07-01T11:00:29+08:00">2021-07-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <script type="text/javascript" src="/js/bai.js"></script>
+
+<p>antd mobile 的form表单是InputItem<br>如图：<br><img src="/%E8%A1%A8%E5%8D%95%E4%B8%AD%E7%9A%84rc-form/1.png" alt="1.png"></p>
+<h1 id="rc-form"><a href="#rc-form" class="headerlink" title="rc-form"></a>rc-form</h1><a id="more"></a>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>rc-form是一个<font color="#f40">将输入框变为受控组件的库</font>，也是一个<font color="#f40">React的高阶form组件</font>。它集合了对于输入框的各种方法，可以使我们方便的控制输入框的状态。</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>基本使用：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createForm &#125; <span class="keyword">from</span> <span class="string">'rc-form'</span>;</span><br><span class="line"><span class="keyword">const</span> Form = <span class="function"><span class="params">()</span>=&gt;</span>&#123;...&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> createForm()(Form);</span><br></pre></td></tr></table></figure>
+
+<p>如果想要能够使用porps.history.push()进行路由跳转的话，要使用withRouter()，要使用一下写法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createForm &#125; <span class="keyword">from</span> <span class="string">'rc-form'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; withRouter &#125; <span class="keyword">from</span> <span class="string">"react-router-dom"</span>;</span><br><span class="line"><span class="keyword">const</span> Form = <span class="function"><span class="params">()</span>=&gt;</span>&#123;...&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> createForm()(withRouter(Form));</span><br></pre></td></tr></table></figure>
+
+<p>如果在同一个js文件中，当做子组件时，要再次赋值一下，再使用新的赋值的组件，写法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createForm &#125; <span class="keyword">from</span> <span class="string">'rc-form'</span>;</span><br><span class="line"><span class="keyword">const</span> Form = <span class="function"><span class="params">()</span>=&gt;</span>&#123;...&#125;</span><br><span class="line"><span class="keyword">const</span> Form1 = createForm()(Form);  <span class="comment">//赋值一下</span></span><br><span class="line"><span class="keyword">const</span> Parent = <span class="function"><span class="params">()</span>=&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span>(<span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">Form1</span> /&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Parent;</span><br></pre></td></tr></table></figure>
+
+<h1 id="API"><a href="#API" class="headerlink" title="API"></a>API</h1><h2 id="validateFields"><a href="#validateFields" class="headerlink" title="validateFields"></a>validateFields</h2><p><font color="#f40">validateFields([fieldNames: string[]],[options: object],callback(errors, values)) =&gt; void </font>        校验并获取一组输入域的值与 Error，若 fieldNames 参数为空，则校验全部组件。</p>
+<h2 id="getFieldsValue"><a href="#getFieldsValue" class="headerlink" title="getFieldsValue"></a>getFieldsValue</h2><p><font color="#f40">getFieldsValue( [fieldNames: string[]] )</font>     <font color="#f40">获取一组控件的值</font>，若 fieldNames <font color="#f40">参数为空</font>，则<font color="#f40">获取全部组件</font>。</p>
+<h2 id="getFieldsError"><a href="#getFieldsError" class="headerlink" title="getFieldsError"></a>getFieldsError</h2><p><font color="#f40">getFieldsError( [names: string[]] ) </font>         获取一组输入控件的 Error ，如不传入参数，则<font color="#f40">获取全部组件的 Error</font>。</p>
+<h2 id="getFieldProps"><a href="#getFieldProps" class="headerlink" title="getFieldProps"></a>getFieldProps</h2><p><font color="#f40">getFieldProps( name,options )</font>              <font color="#f40">name用于为控件绑定名称(key)</font>，及控件的一些默认配置。<br>其中<font color="#f40">options参数</font>简单说两个 <font color="#f40">initialValue</font>和 <font color="#f40">validate</font>，<font color="#f40">initialValue</font>是控件的<font color="#f40">默认初始值绑定在name上</font>；<br><font color="#f40">validate</font>中有<font color="#f40">trigger</font>和<font color="#f40">rules</font>，trigger是校验触发的时机，可以是onBlur或者onChange等默认是onChange，<font color="#f40">rules</font>是对输入框的内容做一些限制，比如是否必须输入(require)，最大(max)最小(min)长度等,也可以<font color="#f40">自定义限制(validator：function(rule, value, callback))</font>。</p>
+<h1 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h1><p>这是我在项目中的一个例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; useState &#125; from &quot;react&quot;;</span><br><span class="line">import &#123; withRouter &#125; from &quot;react-router-dom&quot;;</span><br><span class="line">import &#123; List, InputItem, Button, WingBlank, WhiteSpace, Picker, Toast &#125; from &#39;antd-mobile&#39;;</span><br><span class="line">import VerificationCode from &quot;..&#x2F;..&#x2F;component&#x2F;verificationCode&quot;; &#x2F;&#x2F;验证码组件</span><br><span class="line">import &#123; createForm &#125; from &#39;rc-form&#39;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">const Form &#x3D; (props) &#x3D;&gt; &#123;</span><br><span class="line">    const [password, setPassword] &#x3D; useState(&quot;&quot;);</span><br><span class="line">    const [userType, setUserType] &#x3D; useState([&quot;0&quot;]);    &#x2F;&#x2F;用户类型，默认是1即是老板的选项</span><br><span class="line">    const [canvasCode, setCanvasCode] &#x3D; useState(&quot;&quot;); &#x2F;&#x2F;canvas生成的验证码</span><br><span class="line">    &#x2F;&#x2F; 用户类型数据</span><br><span class="line">    const userTypeData &#x3D; [</span><br><span class="line">        &#123;</span><br><span class="line">            label: &quot;大神&quot;,</span><br><span class="line">            value: &quot;0&quot;,</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            label: &quot;老板&quot;,</span><br><span class="line">            value: &quot;1&quot;,</span><br><span class="line">        &#125;];</span><br><span class="line">    const &#123; getFieldProps, getFieldError &#125; &#x3D; props.form;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 点击注册</span><br><span class="line">    const handleClick &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">        props.form.validateFields(&#123; force: true &#125;, (error) &#x3D;&gt; &#123;</span><br><span class="line">            if (!error) &#123;</span><br><span class="line">                console.log(props.form.getFieldsValue());</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                Toast.info(&quot;请确认表单内容全部正确&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 获取子组件传过来的验证码</span><br><span class="line">    const getCode &#x3D; (value) &#x3D;&gt; &#123;</span><br><span class="line">        setCanvasCode(value);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 校验用户名</span><br><span class="line">    const validateUserName &#x3D; (rule, value, callback) &#x3D;&gt; &#123;</span><br><span class="line">        &#x2F;&#x2F; 仅允许输入英文和数字</span><br><span class="line">        const reg &#x3D; &#x2F;^\w&#123;3,8&#125;$&#x2F;;</span><br><span class="line">        if (reg.test(value)) &#123;</span><br><span class="line">            callback();</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            callback(new Error(&quot;仅允许英文、数字长度为3到8&quot;));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 输入密码校验</span><br><span class="line">    const validatePassword &#x3D; (rule, value, callback) &#x3D;&gt; &#123;</span><br><span class="line">        &#x2F;&#x2F;匹配是否有特殊字符（包括空格）,允许的特殊字符@,.</span><br><span class="line">        const reg &#x3D; &#x2F;^[\w@,.]&#123;6,16&#125;$&#x2F;;</span><br><span class="line">        if (reg.test(value)) &#123;</span><br><span class="line">            setPassword(value);</span><br><span class="line">            callback();</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            callback(new Error(&quot;仅允许英文、数字和特殊字符@ , .长度为6到16&quot;))</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 再次输入密码校验</span><br><span class="line">    const validateRePassword &#x3D; (rule, value, callback) &#x3D;&gt; &#123;</span><br><span class="line">        if (value &amp;&amp; value &#x3D;&#x3D;&#x3D; password) &#123;</span><br><span class="line">            callback();</span><br><span class="line">        &#125; else if (value.length &#x3D;&#x3D;&#x3D; 0) &#123;</span><br><span class="line">            callback(new Error(&#39;请再次输入密码&#39;));</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            callback(new Error(&#39;两次输入密码不一致&#39;));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 校验验证码</span><br><span class="line">    const validateVerificationCode &#x3D; (rule, value, callback) &#x3D;&gt; &#123;</span><br><span class="line">        if (value.toLowerCase() &#x3D;&#x3D;&#x3D; canvasCode.toLowerCase()) &#123;</span><br><span class="line">            callback();</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            callback(new Error(&quot;验证码错误&quot;));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    return (</span><br><span class="line">        &lt;WingBlank&gt;</span><br><span class="line">            &lt;List&gt;</span><br><span class="line"></span><br><span class="line">                &#123;&#x2F;* 用户名 *&#x2F;&#125;</span><br><span class="line">                &lt;InputItem</span><br><span class="line">                    &#123;...getFieldProps(&#39;userName&#39;, &#123;</span><br><span class="line">                        validate: [&#123;</span><br><span class="line">                            trigger: &quot;onBlur&quot;,</span><br><span class="line">                            rules: [</span><br><span class="line">                                &#123; validator: validateUserName &#125;</span><br><span class="line">                            ],</span><br><span class="line">                        &#125;],</span><br><span class="line"></span><br><span class="line">                    &#125;)&#125;</span><br><span class="line">                    error&#x3D;&#123;!!getFieldError(&#39;userName&#39;)&#125;</span><br><span class="line">                    onErrorClick&#x3D;&#123;() &#x3D;&gt; &#123;</span><br><span class="line">                        Toast.info(getFieldError(&#39;userName&#39;), 1);</span><br><span class="line">                    &#125;&#125;</span><br><span class="line">                    clear</span><br><span class="line">                    placeholder&#x3D;&quot;请输入用户名&quot;</span><br><span class="line">                &gt;用户名&lt;&#x2F;InputItem&gt;</span><br><span class="line"></span><br><span class="line">                &#123;&#x2F;* 密码 *&#x2F;&#125;</span><br><span class="line">                &lt;InputItem</span><br><span class="line">                    &#123;...getFieldProps(&#39;password&#39;, &#123;</span><br><span class="line">                        validate: [&#123;</span><br><span class="line">                            trigger: &quot;onBlur&quot;,</span><br><span class="line">                            rules: [</span><br><span class="line">                                &#123; validator: validatePassword &#125;</span><br><span class="line">                            ],</span><br><span class="line">                        &#125;],</span><br><span class="line"></span><br><span class="line">                    &#125;)&#125;</span><br><span class="line">                    error&#x3D;&#123;!!getFieldError(&#39;password&#39;)&#125;</span><br><span class="line">                    onErrorClick&#x3D;&#123;() &#x3D;&gt; &#123;</span><br><span class="line">                        Toast.info(getFieldError(&#39;password&#39;), 1);</span><br><span class="line">                    &#125;&#125;</span><br><span class="line">                    type&#x3D;&quot;password&quot;</span><br><span class="line">                    clear</span><br><span class="line">                    placeholder&#x3D;&quot;请输入密码&quot;</span><br><span class="line">                &gt;密码&lt;&#x2F;InputItem&gt;</span><br><span class="line"></span><br><span class="line">                &#123;&#x2F;* 确认密码 *&#x2F;&#125;</span><br><span class="line">                &lt;InputItem</span><br><span class="line">                    &#123;...getFieldProps(&#39;rePassword&#39;, &#123;</span><br><span class="line">                        validate: [&#123;</span><br><span class="line">                            trigger: &quot;onBlur&quot;,</span><br><span class="line">                            rules: [</span><br><span class="line">                                &#123; validator: validateRePassword &#125;,</span><br><span class="line">                            ],</span><br><span class="line">                        &#125;],</span><br><span class="line"></span><br><span class="line">                    &#125;)&#125;</span><br><span class="line">                    error&#x3D;&#123;!!getFieldError(&#39;rePassword&#39;)&#125;</span><br><span class="line">                    onErrorClick&#x3D;&#123;() &#x3D;&gt; &#123;</span><br><span class="line">                        Toast.info(getFieldError(&#39;rePassword&#39;), 1);</span><br><span class="line">                    &#125;&#125;</span><br><span class="line">                    type&#x3D;&quot;password&quot;</span><br><span class="line">                    clear</span><br><span class="line">                    placeholder&#x3D;&quot;请再次输入密码&quot;</span><br><span class="line">                &gt;确认密码&lt;&#x2F;InputItem&gt;</span><br><span class="line"></span><br><span class="line">                &#123;&#x2F;* 用户类型 *&#x2F;&#125;</span><br><span class="line">                &lt;Picker</span><br><span class="line">                    &#123;...getFieldProps(&#39;userType&#39;, &#123;</span><br><span class="line">                        initialValue: userType</span><br><span class="line">                    &#125;)&#125;</span><br><span class="line">                    data&#x3D;&#123;userTypeData&#125;</span><br><span class="line">                    title&#x3D;&quot;用户类型&quot;</span><br><span class="line">                    extra&#x3D;&quot;请选择&quot;</span><br><span class="line">                    cols&#x3D;&#123;1&#125;</span><br><span class="line">                    value&#x3D;&#123;userType&#125;</span><br><span class="line">                    onOk&#x3D;&#123;v &#x3D;&gt; setUserType(v)&#125;</span><br><span class="line">                &gt;</span><br><span class="line">                    &lt;List.Item arrow&#x3D;&quot;horizontal&quot;&gt;用户类型&lt;&#x2F;List.Item&gt;</span><br><span class="line">                &lt;&#x2F;Picker&gt;</span><br><span class="line"></span><br><span class="line">                &#123;&#x2F;* 验证码 *&#x2F;&#125;</span><br><span class="line">                &lt;List.Item&gt;</span><br><span class="line">                    &lt;VerificationCode getCode&#x3D;&#123;value &#x3D;&gt; getCode(value)&#125; &#x2F;&gt;</span><br><span class="line">                &lt;&#x2F;List.Item&gt;</span><br><span class="line">                &lt;WhiteSpace &#x2F;&gt;</span><br><span class="line">                &lt;InputItem</span><br><span class="line">                    &#123;...getFieldProps(&#39;verificationCode&#39;, &#123;</span><br><span class="line">                        validate: [&#123;</span><br><span class="line">                            trigger: &quot;onBlur&quot;,</span><br><span class="line">                            rules: [</span><br><span class="line">                                &#123; validator: validateVerificationCode &#125;,</span><br><span class="line">                            ],</span><br><span class="line">                        &#125;],</span><br><span class="line"></span><br><span class="line">                    &#125;)&#125;</span><br><span class="line">                    error&#x3D;&#123;!!getFieldError(&#39;verificationCode&#39;)&#125;</span><br><span class="line">                    onErrorClick&#x3D;&#123;() &#x3D;&gt; &#123;</span><br><span class="line">                        Toast.info(getFieldError(&#39;verificationCode&#39;), 1);</span><br><span class="line">                    &#125;&#125;</span><br><span class="line">                    clear</span><br><span class="line">                    placeholder&#x3D;&quot;请输入验证码&quot;</span><br><span class="line">                &gt;验证码&lt;&#x2F;InputItem&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                &lt;List.Item&gt;</span><br><span class="line">                    &lt;Button</span><br><span class="line">                        type&#x3D;&quot;primary&quot;</span><br><span class="line">                        onClick&#x3D;&#123;handleClick&#125;</span><br><span class="line">                    &gt;注册&lt;&#x2F;Button&gt;</span><br><span class="line">                &lt;&#x2F;List.Item&gt;</span><br><span class="line"></span><br><span class="line">                &lt;List.Item&gt;</span><br><span class="line">                    &lt;Button onClick&#x3D;&#123;() &#x3D;&gt; &#123; props.history.push(&quot;&#x2F;login&quot;) &#125;&#125;&gt;</span><br><span class="line">                        已有账户</span><br><span class="line">                    &lt;&#x2F;Button&gt;</span><br><span class="line">                &lt;&#x2F;List.Item&gt;</span><br><span class="line">            &lt;&#x2F;List&gt;</span><br><span class="line">        &lt;&#x2F;WingBlank&gt;</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">const Form1 &#x3D; createForm()(withRouter(Form))</span><br><span class="line"></span><br><span class="line">const Register &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">    return (&lt;div className&#x3D;&quot;register&quot;&gt;</span><br><span class="line">            &lt;Form1 &#x2F;&gt;</span><br><span class="line">            &lt;&#x2F;div&gt;)</span><br><span class="line">&#125;</span><br><span class="line">export default withRouter(Register);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>部分内容借鉴的博客地址：<a href="https://www.jianshu.com/p/6e1ebce3966d" target="_blank" rel="noopener">https://www.jianshu.com/p/6e1ebce3966d</a></p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="wxb 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="wxb 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/React/" rel="tag"><i class="fa fa-tag"></i> React</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/React%E4%BF%AE%E6%94%B9eslint%E9%85%8D%E7%BD%AE/" rel="prev" title="React修改eslint配置">
+      <i class="fa fa-chevron-left"></i> React修改eslint配置
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/Node%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E5%89%8D%E7%AB%AF%E7%9A%84cookie/" rel="next" title="Node如何获取前端的cookie">
+      Node如何获取前端的cookie <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#rc-form"><span class="nav-number">1.</span> <span class="nav-text">rc-form</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">1.2.</span> <span class="nav-text">使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#API"><span class="nav-number">2.</span> <span class="nav-text">API</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#validateFields"><span class="nav-number">2.1.</span> <span class="nav-text">validateFields</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#getFieldsValue"><span class="nav-number">2.2.</span> <span class="nav-text">getFieldsValue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#getFieldsError"><span class="nav-number">2.3.</span> <span class="nav-text">getFieldsError</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#getFieldProps"><span class="nav-number">2.4.</span> <span class="nav-text">getFieldProps</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#例子"><span class="nav-number">3.</span> <span class="nav-text">例子</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="wxb"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">wxb</p>
+  <div class="site-description" itemprop="description">主要是分享自己在web前端的一些入的坑，脱的坑的经历，也会是分享一些node后端的知识。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">65</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/dearDreamWeb" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;dearDreamWeb" rel="noopener" target="_blank"><i class="fa github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/flyingwxb" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;flyingwxb" rel="noopener" target="_blank"><i class="fa gitee fa-fw"></i>Gitee</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="link fa-fw"></i>
+      推荐阅读
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://www.ruanyifeng.com/blog/archives.html" title="http:&#x2F;&#x2F;www.ruanyifeng.com&#x2F;blog&#x2F;archives.html" rel="noopener" target="_blank">阮一峰的网络日志</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://nav.blogwxb.cn/" title="http:&#x2F;&#x2F;nav.blogwxb.cn" rel="noopener" target="_blank">轩辕导航</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wxb</span>
+</div>
+  <div class="powered-by">
+  会飞的猪的个人博客
+  </div><script color="0,0,0" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
