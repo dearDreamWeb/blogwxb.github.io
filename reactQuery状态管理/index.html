@@ -27,23 +27,20 @@
     var CONFIG = {"hostname":"blogwxb.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="第一种（不推荐）用法：ref&#x3D;”名字”例子： 123456789componentDidMount() &amp;#123;   this.refs.dom.style.width &#x3D; &quot;100px&quot;;   this.refs.dom.style.height &#x3D; &quot;100px&quot;;   this.refs.dom.style.backgroundColor &#x3D; &quot;red&quot;; &amp;#125; render">
+  <meta name="description" content="react-query简介react-query是用于状态管理，是为了处理请求的状态。目前在github上已有21.1k个star了。react-query的github地址 react-query的使用第一步需要用QueryClientProvider组件来包裹项目的根组件。例子如下：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="React使用ref操作dom">
-<meta property="og:url" content="https://blogwxb.cn/React%E4%BD%BF%E7%94%A8ref%E6%93%8D%E4%BD%9Cdom/index.html">
+<meta property="og:title" content="reactQuery状态管理">
+<meta property="og:url" content="https://blogwxb.cn/reactQuery%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/index.html">
 <meta property="og:site_name" content="会飞的猪的个人博客">
-<meta property="og:description" content="第一种（不推荐）用法：ref&#x3D;”名字”例子： 123456789componentDidMount() &amp;#123;   this.refs.dom.style.width &#x3D; &quot;100px&quot;;   this.refs.dom.style.height &#x3D; &quot;100px&quot;;   this.refs.dom.style.backgroundColor &#x3D; &quot;red&quot;; &amp;#125; render">
+<meta property="og:description" content="react-query简介react-query是用于状态管理，是为了处理请求的状态。目前在github上已有21.1k个star了。react-query的github地址 react-query的使用第一步需要用QueryClientProvider组件来包裹项目的根组件。例子如下：">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://blogwxb.cn/React%E4%BD%BF%E7%94%A8ref%E6%93%8D%E4%BD%9Cdom/1.png">
-<meta property="og:image" content="https://blogwxb.cn/React%E4%BD%BF%E7%94%A8ref%E6%93%8D%E4%BD%9Cdom/2.png">
-<meta property="article:published_time" content="2020-05-05T08:36:44.000Z">
-<meta property="article:modified_time" content="2021-07-01T03:00:29.437Z">
+<meta property="article:published_time" content="2021-07-08T12:09:16.000Z">
+<meta property="article:modified_time" content="2021-07-08T12:10:25.424Z">
 <meta property="article:author" content="wxb">
-<meta property="article:tag" content="React">
+<meta property="article:tag" content="react">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blogwxb.cn/React%E4%BD%BF%E7%94%A8ref%E6%93%8D%E4%BD%9Cdom/1.png">
 
-<link rel="canonical" href="https://blogwxb.cn/React%E4%BD%BF%E7%94%A8ref%E6%93%8D%E4%BD%9Cdom/">
+<link rel="canonical" href="https://blogwxb.cn/reactQuery%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/">
 
 
 <script id="page-configurations">
@@ -56,7 +53,7 @@
   };
 </script>
 
-  <title>React使用ref操作dom | 会飞的猪的个人博客</title>
+  <title>reactQuery状态管理 | 会飞的猪的个人博客</title>
   
 
 
@@ -183,7 +180,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blogwxb.cn/React%E4%BD%BF%E7%94%A8ref%E6%93%8D%E4%BD%9Cdom/">
+    <link itemprop="mainEntityOfPage" href="https://blogwxb.cn/reactQuery%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -196,7 +193,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          React使用ref操作dom
+          reactQuery状态管理
         </h1>
 
         <div class="post-meta">
@@ -205,16 +202,10 @@
                 <i class="fa fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-05-05 16:36:44" itemprop="dateCreated datePublished" datetime="2020-05-05T16:36:44+08:00">2020-05-05</time>
+              <time title="创建时间：2021-07-08 20:09:16 / 修改时间：20:10:25" itemprop="dateCreated datePublished" datetime="2021-07-08T20:09:16+08:00">2021-07-08</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-07-01 11:00:29" itemprop="dateModified" datetime="2021-07-01T11:00:29+08:00">2021-07-01</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder"></i>
@@ -245,18 +236,36 @@
       
         <script type="text/javascript" src="/js/bai.js"></script>
 
-<h1 id="第一种（不推荐）"><a href="#第一种（不推荐）" class="headerlink" title="第一种（不推荐）"></a>第一种（不推荐）</h1><p>用法：<font color="#f40">ref=”名字”</font><br>例子：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">componentDidMount() &#123;</span><br><span class="line">   <span class="keyword">this</span>.refs.dom.style.width = <span class="string">"100px"</span>;</span><br><span class="line">   <span class="keyword">this</span>.refs.dom.style.height = <span class="string">"100px"</span>;</span><br><span class="line">   <span class="keyword">this</span>.refs.dom.style.backgroundColor = <span class="string">"red"</span>;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> render() &#123;</span><br><span class="line">   <span class="keyword">return</span> (<span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ref</span>=<span class="string">"dom"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>)</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<p>  运行效果图：<br>  <a id="more"></a><br>  <img src="/React%E4%BD%BF%E7%94%A8ref%E6%93%8D%E4%BD%9Cdom/1.png" alt="1.png"><br>  会有一个警告（意思是不推荐这种方法）：</p>
+<h1 id="react-query简介"><a href="#react-query简介" class="headerlink" title="react-query简介"></a>react-query简介</h1><p>react-query是用于状态管理，是为了处理请求的状态。目前在github上已有21.1k个star了。<a href="https://github.com/tannerlinsley/react-query" target="_blank" rel="noopener">react-query的github地址</a></p>
+<h1 id="react-query的使用"><a href="#react-query的使用" class="headerlink" title="react-query的使用"></a>react-query的使用</h1><p>第一步需要用<code>QueryClientProvider</code>组件来包裹项目的根组件。例子如下：</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import Layout from &#39;.&#x2F;layout&#39;</span><br><span class="line">import &#123;</span><br><span class="line">  QueryClient,</span><br><span class="line">  QueryClientProvider,</span><br><span class="line">&#125; from &quot;react-query&quot;;</span><br><span class="line"></span><br><span class="line">const queryClient &#x3D; new QueryClient()</span><br><span class="line"></span><br><span class="line">export default function App() &#123;</span><br><span class="line"></span><br><span class="line">  return (</span><br><span class="line">    &lt;QueryClientProvider client&#x3D;&#123;queryClient&#125;&gt;</span><br><span class="line">        &lt;Layout &#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;QueryClientProvider&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>react-query的请求处理是通过<code>useQuery</code>、<code>useMutation</code> 等 Hooks API来实现的。下面将介绍一下useQuery和useMutation。  </p>
+<ul>
+<li>useQuery的使用<ul>
+<li>两个参数：一个是请求的<code>Query key</code>，一个是发送请求进行处理并返回数据的异步方法。  </li>
+</ul>
+</li>
+</ul>
+<p>例子如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import &#123; useQuery &#125; from &quot;react-query&quot;;</span><br><span class="line">const &#123; data, isSuccess &#125; &#x3D; useQuery(&quot;getData&quot;, async () &#x3D;&gt; &#123;</span><br><span class="line">    const res &#x3D; await axios.get(&quot;&#x2F;api&quot;);</span><br><span class="line">    return res;</span><br><span class="line">&#125;);</span><br><span class="line">console.log(data, isSuccess);</span><br></pre></td></tr></table></figure>
+<p>打印结果： <code>[1,2,3,4,5] true</code></p>
+<ul>
+<li>useMutation的使用<ul>
+<li>如果说useQuery是对数据的查，那么useMutation是增/删/改，两个参数：一个是发送请求的函数，一个是对请求的数据状态不同的处理。</li>
+<li>例子如下：  </li>
+</ul>
+</li>
+</ul>
+<p>例子：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useMutation &#125; <span class="keyword">from</span> <span class="string">"react-query"</span>;</span><br><span class="line"><span class="keyword">const</span> mutation = useMutation(</span><br><span class="line">    <span class="comment">// data为参数</span></span><br><span class="line">    <span class="keyword">async</span> (data: string) =&gt; &#123;</span><br><span class="line">      <span class="keyword">const</span> res = <span class="keyword">await</span> axios.get(<span class="string">"/api/updateUsername"</span>, &#123;</span><br><span class="line">        params: &#123; <span class="attr">username</span>: data &#125;,</span><br><span class="line">      &#125;);</span><br><span class="line">      <span class="keyword">return</span> res;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="comment">// 成功回调</span></span><br><span class="line">      onSuccess(res) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(res);</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="comment">// 失败回调</span></span><br><span class="line">      onError(err) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(err);</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br><span class="line"><span class="keyword">return</span> (</span><br><span class="line">    &lt;button</span><br><span class="line">      onClick=&#123;() =&gt; &#123;</span><br><span class="line">       <span class="comment">// 使用mutate传参并发送请求</span></span><br><span class="line">        mutation.mutate(<span class="string">'www'</span>);</span><br><span class="line">      &#125;&#125;</span><br><span class="line">    &gt;</span><br><span class="line">      change username</span><br><span class="line">    &lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">)</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="获取缓存的数据"><a href="#获取缓存的数据" class="headerlink" title="获取缓存的数据"></a>获取缓存的数据</h1><p>在使用useQuery时，第一个参数要填入唯一的key值，useQuery是有缓存的能力，默认是5分钟，所以可以通过queryClient来获取到useQuery请求的缓存数据。例子如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useQuery,useQueryClient &#125; <span class="keyword">from</span> <span class="string">"react-query"</span>;</span><br><span class="line"><span class="comment">// getData为useQuery的query key值</span></span><br><span class="line"><span class="keyword">const</span> &#123; data, isSuccess &#125; = useQuery(<span class="string">"getData"</span>, <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> res = <span class="keyword">await</span> axios.get(<span class="string">"/api"</span>);</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> queryClient = useQueryClient();</span><br><span class="line"><span class="comment">// 获取query key为query的缓存数据</span></span><br><span class="line"><span class="built_in">console</span>.log(queryClient.getQueryData(<span class="string">'getData'</span>))</span><br></pre></td></tr></table></figure>
+
 <blockquote>
-<p>Warning: A string ref, “dom”, has been found within a strict mode tree. String refs are a source of potential bugs and should be avoided. We recommend using useRef() or createRef() instead.</p>
+<p>参考自： <a href="https://react-query.tanstack.com/overview" target="_blank" rel="noopener">React Query官网</a></p>
 </blockquote>
-<h1 id="第二种"><a href="#第二种" class="headerlink" title="第二种"></a>第二种</h1><p>用法：<font color="#f40">ref={(dom)=&gt;this.mode = dom}</font><br>例子：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">componentDidMount() &#123;</span><br><span class="line">  <span class="keyword">this</span>.mode.style.width = <span class="string">"100px"</span>;</span><br><span class="line">  <span class="keyword">this</span>.mode.style.height = <span class="string">"100px"</span>;</span><br><span class="line">  <span class="keyword">this</span>.mode.style.backgroundColor = <span class="string">"red"</span>;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">render() &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">&lt;div ref=&#123;(dom</span>)=&gt;</span><span class="keyword">this</span>.mode = dom&#125;&gt;&lt;<span class="regexp">/div&gt;)</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
-<p>运行效果：<br><img src="/React%E4%BD%BF%E7%94%A8ref%E6%93%8D%E4%BD%9Cdom/2.png" alt="2.png"></p>
-<h1 id="第三种"><a href="#第三种" class="headerlink" title="第三种"></a>第三种</h1><p>父组件操作子组件的dom元素<br><font color="#f40">父组件给子组件传参this：scope={this}</font></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyDiv</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">&lt;div ref=&#123;(dom</span>)=&gt;</span>&#123;props.scope.myDiv=dom&#125;&#125;&gt;&lt;<span class="regexp">/div&gt;)</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp">class Test extends React.Component &#123;</span></span><br><span class="line"><span class="regexp">  componentDidMount() &#123;</span></span><br><span class="line"><span class="regexp">    this.myDiv.style.width ="100px";</span></span><br><span class="line"><span class="regexp">    this.myDiv.style.height ="100px";</span></span><br><span class="line"><span class="regexp">    this.myDiv.style.backgroundColor ="red";</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">  render() &#123;</span></span><br><span class="line"><span class="regexp">    return (&lt;MyDiv scope=&#123;this&#125; /</span>&gt;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运行结果图：<br>和上面的例子的效果是一样的。</p>
 
     </div>
 
@@ -287,7 +296,7 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/React/" rel="tag"><i class="fa fa-tag"></i> React</a>
+              <a href="/tags/react/" rel="tag"><i class="fa fa-tag"></i> react</a>
           </div>
 
         
@@ -296,13 +305,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/Express%E5%A4%84%E7%90%86%E5%89%8D%E7%AB%AF%E5%8A%A8%E6%80%81%E8%AF%B7%E6%B1%82%EF%BC%88-id%EF%BC%89/" rel="prev" title="Express处理前端动态请求（/:id）">
-      <i class="fa fa-chevron-left"></i> Express处理前端动态请求（/:id）
+    <a href="/emotion%E4%B8%ADReact%E7%9A%84typeScript%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/" rel="prev" title="emotion中React的typeScript使用说明">
+      <i class="fa fa-chevron-left"></i> emotion中React的typeScript使用说明
     </a></div>
-      <div class="post-nav-item">
-    <a href="/querySelectorAll%E5%92%8CgetElementsByClassName%E7%9A%84%E5%8C%BA%E5%88%AB/" rel="next" title="querySelectorAll和getElementsByClassName的区别">
-      querySelectorAll和getElementsByClassName的区别 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -361,7 +367,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一种（不推荐）"><span class="nav-number">1.</span> <span class="nav-text">第一种（不推荐）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二种"><span class="nav-number">2.</span> <span class="nav-text">第二种</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三种"><span class="nav-number">3.</span> <span class="nav-text">第三种</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#react-query简介"><span class="nav-number">1.</span> <span class="nav-text">react-query简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#react-query的使用"><span class="nav-number">2.</span> <span class="nav-text">react-query的使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#获取缓存的数据"><span class="nav-number">3.</span> <span class="nav-text">获取缓存的数据</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

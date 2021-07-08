@@ -135,7 +135,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">20</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">21</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -145,7 +145,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">65</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">66</span></a>
 
   </li>
   </ul>
@@ -173,6 +173,91 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blogwxb.cn/React%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%8F%82%E7%88%B6%E5%AD%90%EF%BC%8C%E7%88%B7%E5%AD%99%EF%BC%8C%E5%85%84%E5%BC%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="wxb">
+      <meta itemprop="description" content="主要是分享自己在web前端的一些入的坑，脱的坑的经历，也会是分享一些node后端的知识。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="会飞的猪的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/React%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%8F%82%E7%88%B6%E5%AD%90%EF%BC%8C%E7%88%B7%E5%AD%99%EF%BC%8C%E5%85%84%E5%BC%9F/" class="post-title-link" itemprop="url">React组件传参父子，爷孙，兄弟</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-09-07 17:48:32" itemprop="dateCreated datePublished" datetime="2020-09-07T17:48:32+08:00">2020-09-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-07-01 11:00:29" itemprop="dateModified" datetime="2021-07-01T11:00:29+08:00">2021-07-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <script type="text/javascript" src="/js/bai.js"></script>
+
+<h1 id="父子组件传参"><a href="#父子组件传参" class="headerlink" title="父子组件传参"></a>父子组件传参</h1><p>父组件在子组件上写上类似html标签的属性和属性值，子组件用props接收</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 父组件</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Parent</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (<span class="xml"><span class="tag">&lt;<span class="name">Child</span> <span class="attr">text</span>=<span class="string">"来自父组件的参数"</span> /&gt;</span></span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 子组件</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.props.text);  <span class="comment">// 来自父组件的参数</span></span><br><span class="line">    <span class="keyword">return</span> (<span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;this.props.text&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>打印结果是:   </p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/React%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%8F%82%E7%88%B6%E5%AD%90%EF%BC%8C%E7%88%B7%E5%AD%99%EF%BC%8C%E5%85%84%E5%BC%9F/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -951,90 +1036,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blogwxb.cn/Express%E4%B8%AD%E7%9A%84socket-io/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="wxb">
-      <meta itemprop="description" content="主要是分享自己在web前端的一些入的坑，脱的坑的经历，也会是分享一些node后端的知识。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="会飞的猪的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Express%E4%B8%AD%E7%9A%84socket-io/" class="post-title-link" itemprop="url">Express中的socket.io</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-05 20:00:21" itemprop="dateCreated datePublished" datetime="2020-07-05T20:00:21+08:00">2020-07-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-07-01 11:00:29" itemprop="dateModified" datetime="2021-07-01T11:00:29+08:00">2021-07-01</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%90%8E%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">后端</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <script type="text/javascript" src="/js/bai.js"></script>
-
-<p>socket.io中文api博客地址：<a href="https://blog.csdn.net/u010528747/article/details/54341751" target="_blank" rel="noopener">https://blog.csdn.net/u010528747/article/details/54341751</a></p>
-<h1 id="一、socketio开发时的使用范围"><a href="#一、socketio开发时的使用范围" class="headerlink" title="一、socketio开发时的使用范围"></a>一、socketio开发时的使用范围</h1><p>wifi的IP动态分配机制，socket属于可靠连接，在<font color="#f40">wifi中，其他设备（pc，手机）</font>访问<font color="#f40">都没法通过ip访问</font>，虽然<font color="#f40">能访问http协议</font>的服务，<font color="#f40">但socket不行</font>。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/Express%E4%B8%AD%E7%9A%84socket-io/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1106,7 +1107,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">65</span>
+          <span class="site-state-item-count">66</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1119,7 +1120,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
