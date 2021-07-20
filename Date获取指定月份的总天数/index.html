@@ -27,24 +27,20 @@
     var CONFIG = {"hostname":"blogwxb.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="问题描述如果是要写入object数据的话，会出现[object,object]的情况例如: 12fs.writeFile(&quot;.&#x2F;data.json&quot;, &amp;#123;a:1,b:2&amp;#125;,  err &#x3D;&gt; console.log(err)) 运行之后的data.json文件的内容为 [object,object]">
+  <meta name="description" content="new Date()使用手册new Date()的参数：  new Date();实例化时刻的日期和时间  new Date(value);value是个时间戳，value的类型必须是Number类型的值，以毫秒数计算的。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="fs.writeFile写入object对象数据解决方案">
-<meta property="og:url" content="https://blogwxb.cn/fs-writeFile%E5%86%99%E5%85%A5object%E5%AF%B9%E8%B1%A1%E6%95%B0%E6%8D%AE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/index.html">
+<meta property="og:title" content="Date获取指定月份的总天数">
+<meta property="og:url" content="https://blogwxb.cn/Date%E8%8E%B7%E5%8F%96%E6%8C%87%E5%AE%9A%E6%9C%88%E4%BB%BD%E7%9A%84%E6%80%BB%E5%A4%A9%E6%95%B0/index.html">
 <meta property="og:site_name" content="会飞的猪的个人博客">
-<meta property="og:description" content="问题描述如果是要写入object数据的话，会出现[object,object]的情况例如: 12fs.writeFile(&quot;.&#x2F;data.json&quot;, &amp;#123;a:1,b:2&amp;#125;,  err &#x3D;&gt; console.log(err)) 运行之后的data.json文件的内容为 [object,object]">
+<meta property="og:description" content="new Date()使用手册new Date()的参数：  new Date();实例化时刻的日期和时间  new Date(value);value是个时间戳，value的类型必须是Number类型的值，以毫秒数计算的。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://blogwxb.cn/fs-writeFile%E5%86%99%E5%85%A5object%E5%AF%B9%E8%B1%A1%E6%95%B0%E6%8D%AE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/1.png">
-<meta property="og:image" content="https://blogwxb.cn/fs-writeFile%E5%86%99%E5%85%A5object%E5%AF%B9%E8%B1%A1%E6%95%B0%E6%8D%AE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/2.png">
-<meta property="og:image" content="https://blogwxb.cn/fs-writeFile%E5%86%99%E5%85%A5object%E5%AF%B9%E8%B1%A1%E6%95%B0%E6%8D%AE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/3.png">
-<meta property="article:published_time" content="2020-09-30T09:46:56.000Z">
-<meta property="article:modified_time" content="2021-07-01T03:00:29.443Z">
+<meta property="article:published_time" content="2021-07-15T01:55:33.000Z">
+<meta property="article:modified_time" content="2021-07-20T01:57:01.962Z">
 <meta property="article:author" content="wxb">
-<meta property="article:tag" content="Node">
+<meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blogwxb.cn/fs-writeFile%E5%86%99%E5%85%A5object%E5%AF%B9%E8%B1%A1%E6%95%B0%E6%8D%AE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/1.png">
 
-<link rel="canonical" href="https://blogwxb.cn/fs-writeFile%E5%86%99%E5%85%A5object%E5%AF%B9%E8%B1%A1%E6%95%B0%E6%8D%AE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
+<link rel="canonical" href="https://blogwxb.cn/Date%E8%8E%B7%E5%8F%96%E6%8C%87%E5%AE%9A%E6%9C%88%E4%BB%BD%E7%9A%84%E6%80%BB%E5%A4%A9%E6%95%B0/">
 
 
 <script id="page-configurations">
@@ -57,7 +53,7 @@
   };
 </script>
 
-  <title>fs.writeFile写入object对象数据解决方案 | 会飞的猪的个人博客</title>
+  <title>Date获取指定月份的总天数 | 会飞的猪的个人博客</title>
   
 
 
@@ -184,7 +180,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blogwxb.cn/fs-writeFile%E5%86%99%E5%85%A5object%E5%AF%B9%E8%B1%A1%E6%95%B0%E6%8D%AE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
+    <link itemprop="mainEntityOfPage" href="https://blogwxb.cn/Date%E8%8E%B7%E5%8F%96%E6%8C%87%E5%AE%9A%E6%9C%88%E4%BB%BD%E7%9A%84%E6%80%BB%E5%A4%A9%E6%95%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -197,7 +193,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          fs.writeFile写入object对象数据解决方案
+          Date获取指定月份的总天数
         </h1>
 
         <div class="post-meta">
@@ -207,14 +203,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-09-30 17:46:56" itemprop="dateCreated datePublished" datetime="2020-09-30T17:46:56+08:00">2020-09-30</time>
+              <time title="创建时间：2021-07-15 09:55:33" itemprop="dateCreated datePublished" datetime="2021-07-15T09:55:33+08:00">2021-07-15</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-07-01 11:00:29" itemprop="dateModified" datetime="2021-07-01T11:00:29+08:00">2021-07-01</time>
+                <time title="修改时间：2021-07-20 09:57:01" itemprop="dateModified" datetime="2021-07-20T09:57:01+08:00">2021-07-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -246,19 +242,29 @@
       
         <script type="text/javascript" src="/js/bai.js"></script>
 
-<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>如果是要写入<code>object</code>数据的话，会出现<code>[object,object]</code>的情况<br>例如:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fs.writeFile(<span class="string">"./data.json"</span>, &#123;<span class="attr">a</span>:<span class="number">1</span>,<span class="attr">b</span>:<span class="number">2</span>&#125;, </span><br><span class="line"> err =&gt; <span class="built_in">console</span>.log(err))</span><br></pre></td></tr></table></figure>
-<p>运行之后的<code>data.json</code>文件的内容为 <code>[object,object]</code></p>
-<a id="more"></a>
-<p><img src="/fs-writeFile%E5%86%99%E5%85%A5object%E5%AF%B9%E8%B1%A1%E6%95%B0%E6%8D%AE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/1.png" alt="1.png"></p>
-<h1 id="原因："><a href="#原因：" class="headerlink" title="原因："></a>原因：</h1><p>因为<code>writeFile</code>是最终是通过<code>将内容转换成字节码</code>进行写入的，而类型为<code>Object内容没办法转换成字节码</code>，会被<code>先转换成字符类型</code>。最终出现上述类型。</p>
-<h1 id="解决办法："><a href="#解决办法：" class="headerlink" title="解决办法："></a>解决办法：</h1><p>用<code>JSON.stringify</code> 可以解决<br>例子:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fs.writeFile(<span class="string">"./data.json"</span>, <span class="built_in">JSON</span>.stringify(&#123;<span class="attr">a</span>:<span class="number">1</span>,<span class="attr">b</span>:<span class="number">2</span>&#125;), </span><br><span class="line"> err =&gt; <span class="built_in">console</span>.log(err))</span><br></pre></td></tr></table></figure>
-<p>运行之后的<code>data.json</code>文件的内容为 <code>[object,object]</code><br><img src="/fs-writeFile%E5%86%99%E5%85%A5object%E5%AF%B9%E8%B1%A1%E6%95%B0%E6%8D%AE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/2.png" alt="2.png"></p>
-<p>这里可以优化一下的，因为data.json文件中的数据并没有缩进和换行，一旦数据量大的话，会照成数据结构看起来不清晰，所以在<code>JSON.stringify中添加可选参数</code>，<code>进行缩进换行。</code><br>例子：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fs.writeFile(<span class="string">"./data.json"</span>, <span class="built_in">JSON</span>.stringify(&#123;<span class="attr">a</span>:<span class="number">1</span>,<span class="attr">b</span>:<span class="number">2</span>&#125;, <span class="literal">null</span>, <span class="string">'\t'</span>), </span><br><span class="line">err =&gt; <span class="built_in">console</span>.log(err))</span><br></pre></td></tr></table></figure>
-<p>运行之后的<code>data.json</code>文件的内容为 <code>[object,object]</code><br><img src="/fs-writeFile%E5%86%99%E5%85%A5object%E5%AF%B9%E8%B1%A1%E6%95%B0%E6%8D%AE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/3.png" alt="3.png"></p>
-
+<h1 id="new-Date-使用手册"><a href="#new-Date-使用手册" class="headerlink" title="new Date()使用手册"></a>new Date()使用手册</h1><p>new Date()的参数：</p>
+<ul>
+<li><p>new Date();<br>实例化时刻的日期和时间</p>
+</li>
+<li><p>new Date(value);<br>value是个时间戳，value的类型必须是Number类型的值，以毫秒数计算的。</p>
+<a id="more"></a></li>
+<li><p>new Date(dateString);<br>dateString表示日期的字符串值，必须是正确的日期字符串才行，否则报错。<br>例子：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2021-6-1'</span>))</span><br><span class="line"><span class="comment">// Tue Jun 01 2021 00:00:00 GMT+0800 (中国标准时间)</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2021-6-0'</span>))</span><br><span class="line"><span class="comment">// Invalid Date</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>new Date(year, monthIndex, day, hours, minutes, seconds, milliseconds);   </p>
+<ul>
+<li>year(必选)<br>表示年份的整数值。 </li>
+<li>monthIndex(必选)<br>表示月份的整数值。</li>
+<li>date(可选)<br>表示一个月中的第几天的整数值，从1开始。默认值为1。</li>
+<li>hours (可选)<br>表示一天中的小时数的整数值 (24小时制)。默认值为0（午夜）。</li>
+<li>minutes (可选)<br>表示一个完整时间（如 01:10:00）中的分钟部分的整数值。默认值为0。</li>
+<li>seconds (可选)<br>表示一个完整时间（如 01:10:00）中的秒部分的整数值。默认值为0。</li>
+<li>milliseconds (可选)<br>表示一个完整时间的毫秒部分的整数值。默认值为0。</li>
+</ul>
+</li>
+</ul>
+<h1 id="获取指定月份的总天数的方法"><a href="#获取指定月份的总天数的方法" class="headerlink" title="获取指定月份的总天数的方法"></a>获取指定月份的总天数的方法</h1><p>要用到<code>new Date(year, monthIndex, day, hours, minutes, seconds, milliseconds)</code>的方法去获取指定月份总天数。<br>当day参数为0时就会跳转到上个月的最后一天，再通过getDate()方法去获取上个月总天数即可。<br>例子：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2021</span>,<span class="number">6</span>,<span class="number">0</span>))</span><br><span class="line"><span class="comment">//  Wed Jun 30 2021 00:00:00 GMT+0800 (中国标准时间)</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2021</span>,<span class="number">6</span>,<span class="number">0</span>).getDate())</span><br><span class="line"><span class="comment">//  30</span></span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -288,7 +294,7 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/Node/" rel="tag"><i class="fa fa-tag"></i> Node</a>
+              <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> JavaScript</a>
           </div>
 
         
@@ -297,13 +303,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/node%E6%A1%86%E6%9E%B6express%E4%B8%AD%E7%94%9F%E6%88%90%E9%AA%8C%E8%AF%81%E7%A0%81svg-captcha/" rel="prev" title="node框架express中生成验证码svg-captcha">
-      <i class="fa fa-chevron-left"></i> node框架express中生成验证码svg-captcha
+    <a href="/reactQuery%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/" rel="prev" title="reactQuery状态管理">
+      <i class="fa fa-chevron-left"></i> reactQuery状态管理
     </a></div>
-      <div class="post-nav-item">
-    <a href="/ES6-%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%89%A9%E5%B1%95-padStart%EF%BC%8CpadEnd%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%A1%A5%E5%85%A8%E9%95%BF%E5%BA%A6%E7%9A%84%E5%8A%9F%E8%83%BD/" rel="next" title="ES6-字符串扩展-padStart，padEnd字符串补全长度的功能">
-      ES6-字符串扩展-padStart，padEnd字符串补全长度的功能 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -362,7 +365,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#问题描述"><span class="nav-number">1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原因："><span class="nav-number">2.</span> <span class="nav-text">原因：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解决办法："><span class="nav-number">3.</span> <span class="nav-text">解决办法：</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#new-Date-使用手册"><span class="nav-number">1.</span> <span class="nav-text">new Date()使用手册</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#获取指定月份的总天数的方法"><span class="nav-number">2.</span> <span class="nav-text">获取指定月份的总天数的方法</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

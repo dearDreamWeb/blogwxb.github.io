@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blogwxb.cn/Date%E8%8E%B7%E5%8F%96%E6%8C%87%E5%AE%9A%E6%9C%88%E4%BB%BD%E7%9A%84%E6%80%BB%E5%A4%A9%E6%95%B0/</loc>
+    
+    <lastmod>2021-07-20</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blogwxb.cn/reactQuery%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/</loc>
     
     <lastmod>2021-07-08</lastmod>
@@ -107,14 +114,14 @@
   </url>
   
   <url>
-    <loc>https://blogwxb.cn/video%E7%9A%84autoplay%E5%9C%A8chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E5%A4%B1%E6%95%88%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</loc>
+    <loc>https://blogwxb.cn/vue-cli4%E4%BF%AE%E6%94%B9index-html%E4%B8%AD%E7%9A%84title/</loc>
     
     <lastmod>2021-07-01</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blogwxb.cn/vue-cli4%E4%BF%AE%E6%94%B9index-html%E4%B8%AD%E7%9A%84title/</loc>
+    <loc>https://blogwxb.cn/video%E7%9A%84autoplay%E5%9C%A8chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E5%A4%B1%E6%95%88%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</loc>
     
     <lastmod>2021-07-01</lastmod>
     
@@ -219,13 +226,6 @@
   </url>
   
   <url>
-    <loc>https://blogwxb.cn/js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%95%B0%E7%BB%84%E4%B9%8B%E9%97%B4%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/</loc>
-    
-    <lastmod>2021-07-01</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blogwxb.cn/js%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/</loc>
     
     <lastmod>2021-07-01</lastmod>
@@ -233,7 +233,7 @@
   </url>
   
   <url>
-    <loc>https://blogwxb.cn/js%E4%B8%AD%E7%9A%84get%E5%92%8Cset%E6%96%B9%E6%B3%95/</loc>
+    <loc>https://blogwxb.cn/js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%95%B0%E7%BB%84%E4%B9%8B%E9%97%B4%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/</loc>
     
     <lastmod>2021-07-01</lastmod>
     
@@ -241,6 +241,13 @@
   
   <url>
     <loc>https://blogwxb.cn/js%E4%B8%AD%E7%9A%84XMLHttpRequest%E5%AF%B9%E8%B1%A1/</loc>
+    
+    <lastmod>2021-07-01</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blogwxb.cn/js%E4%B8%AD%E7%9A%84get%E5%92%8Cset%E6%96%B9%E6%B3%95/</loc>
     
     <lastmod>2021-07-01</lastmod>
     
@@ -331,14 +338,14 @@
   </url>
   
   <url>
-    <loc>https://blogwxb.cn/css3%E4%B8%ADflex%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%AD%90%E5%85%83%E7%B4%A0%E7%AD%89%E5%88%86/</loc>
+    <loc>https://blogwxb.cn/antd%E4%B8%ADsetFieldsValue%E5%AF%BC%E8%87%B4%E6%8F%90%E7%A4%BA%E6%B6%88%E5%A4%B1/</loc>
     
     <lastmod>2021-07-01</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blogwxb.cn/antd%E4%B8%ADsetFieldsValue%E5%AF%BC%E8%87%B4%E6%8F%90%E7%A4%BA%E6%B6%88%E5%A4%B1/</loc>
+    <loc>https://blogwxb.cn/css3%E4%B8%ADflex%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%AD%90%E5%85%83%E7%B4%A0%E7%AD%89%E5%88%86/</loc>
     
     <lastmod>2021-07-01</lastmod>
     
@@ -380,14 +387,14 @@
   </url>
   
   <url>
-    <loc>https://blogwxb.cn/React%E4%BD%BF%E7%94%A8ref%E6%93%8D%E4%BD%9Cdom/</loc>
+    <loc>https://blogwxb.cn/React%E4%B8%AD%E7%9A%84proxy/</loc>
     
     <lastmod>2021-07-01</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blogwxb.cn/React%E4%B8%AD%E7%9A%84proxy/</loc>
+    <loc>https://blogwxb.cn/React%E4%BD%BF%E7%94%A8ref%E6%93%8D%E4%BD%9Cdom/</loc>
     
     <lastmod>2021-07-01</lastmod>
     
@@ -429,14 +436,14 @@
   </url>
   
   <url>
-    <loc>https://blogwxb.cn/H5%E4%B8%AD%E7%9A%84canvas%E9%AA%8C%E8%AF%81%E7%A0%81%E8%AF%A6%E8%A7%A3/</loc>
+    <loc>https://blogwxb.cn/H5%E5%8A%A8%E7%94%BB%E5%B8%A7requestAnimationFrame/</loc>
     
     <lastmod>2021-07-01</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blogwxb.cn/H5%E5%8A%A8%E7%94%BB%E5%B8%A7requestAnimationFrame/</loc>
+    <loc>https://blogwxb.cn/H5%E4%B8%AD%E7%9A%84canvas%E9%AA%8C%E8%AF%81%E7%A0%81%E8%AF%A6%E8%A7%A3/</loc>
     
     <lastmod>2021-07-01</lastmod>
     
@@ -487,155 +494,155 @@
 
   <url>
     <loc>https://blogwxb.cn/</loc>
-    <lastmod>2021-07-08</lastmod>
+    <lastmod>2021-07-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>https://blogwxb.cn/tags/express/</loc>
-    <lastmod>2021-07-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blogwxb.cn/tags/ES6/</loc>
-    <lastmod>2021-07-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blogwxb.cn/tags/git/</loc>
-    <lastmod>2021-07-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blogwxb.cn/tags/Html5/</loc>
-    <lastmod>2021-07-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blogwxb.cn/tags/React/</loc>
-    <lastmod>2021-07-08</lastmod>
+    <loc>https://blogwxb.cn/tags/JavaScript/</loc>
+    <lastmod>2021-07-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://blogwxb.cn/tags/Node/</loc>
-    <lastmod>2021-07-08</lastmod>
+    <lastmod>2021-07-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blogwxb.cn/tags/express/</loc>
+    <lastmod>2021-07-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blogwxb.cn/tags/ES6/</loc>
+    <lastmod>2021-07-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blogwxb.cn/tags/git/</loc>
+    <lastmod>2021-07-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blogwxb.cn/tags/Html5/</loc>
+    <lastmod>2021-07-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://blogwxb.cn/tags/Jest/</loc>
-    <lastmod>2021-07-08</lastmod>
+    <lastmod>2021-07-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blogwxb.cn/tags/React/</loc>
+    <lastmod>2021-07-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://blogwxb.cn/tags/TypeScript/</loc>
-    <lastmod>2021-07-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blogwxb.cn/tags/css3/</loc>
-    <lastmod>2021-07-08</lastmod>
+    <lastmod>2021-07-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://blogwxb.cn/tags/antd/</loc>
-    <lastmod>2021-07-08</lastmod>
+    <lastmod>2021-07-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blogwxb.cn/tags/css3/</loc>
+    <lastmod>2021-07-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://blogwxb.cn/tags/css/</loc>
-    <lastmod>2021-07-08</lastmod>
+    <lastmod>2021-07-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://blogwxb.cn/tags/Html/</loc>
-    <lastmod>2021-07-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blogwxb.cn/tags/JavaScript/</loc>
-    <lastmod>2021-07-08</lastmod>
+    <lastmod>2021-07-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://blogwxb.cn/tags/Javescript/</loc>
-    <lastmod>2021-07-08</lastmod>
+    <lastmod>2021-07-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://blogwxb.cn/tags/HTML5/</loc>
-    <lastmod>2021-07-08</lastmod>
+    <lastmod>2021-07-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://blogwxb.cn/tags/Koa/</loc>
-    <lastmod>2021-07-08</lastmod>
+    <lastmod>2021-07-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://blogwxb.cn/tags/koa/</loc>
-    <lastmod>2021-07-08</lastmod>
+    <lastmod>2021-07-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://blogwxb.cn/tags/react/</loc>
-    <lastmod>2021-07-08</lastmod>
+    <lastmod>2021-07-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://blogwxb.cn/tags/Vue/</loc>
-    <lastmod>2021-07-08</lastmod>
+    <lastmod>2021-07-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://blogwxb.cn/tags/Echarts/</loc>
-    <lastmod>2021-07-08</lastmod>
+    <lastmod>2021-07-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://blogwxb.cn/tags/AntV/</loc>
-    <lastmod>2021-07-08</lastmod>
+    <lastmod>2021-07-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -643,22 +650,22 @@
 
   
   <url>
-    <loc>https://blogwxb.cn/categories/%E5%90%8E%E7%AB%AF/</loc>
-    <lastmod>2021-07-08</lastmod>
+    <loc>https://blogwxb.cn/categories/%E5%89%8D%E7%AB%AF/</loc>
+    <lastmod>2021-07-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://blogwxb.cn/categories/%E5%89%8D%E7%AB%AF/</loc>
-    <lastmod>2021-07-08</lastmod>
+    <loc>https://blogwxb.cn/categories/%E5%90%8E%E7%AB%AF/</loc>
+    <lastmod>2021-07-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://blogwxb.cn/categories/git/</loc>
-    <lastmod>2021-07-08</lastmod>
+    <lastmod>2021-07-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
